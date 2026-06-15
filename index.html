@@ -3,448 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vidéos d'Orientation SVT</title>
+<meta name="description" content="Ressource pédagogique gratuite : découvrez des dizaines de métiers accessibles avec la spécialité SVT au lycée, à travers des témoignages vidéo courts de professionnels. Par Lucas Bollori, sous licence CC BY-NC-SA 4.0.">
+<meta name="author" content="Lucas Bollori">
+<meta property="og:title" content="Vidéos d'Orientation SVT">
+<meta property="og:description" content="Des métiers à découvrir avec la spécialité SVT — témoignages vidéo de professionnels.">
+<meta property="og:type" content="website">
+<title>Vidéos d'Orientation SVT — Sciences du Vivant & de la Terre</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #1F4E79;
-  --blue: #2E75B6;
-  --blue-light: #EBF3FB;
-  --green: #1A5C35;
-  --green-mid: #217A46;
-  --green-pale: #E8F5EE;
-  --orange: #C55A11;
-  --purple: #7B2D8B;
-  --white: #FFFFFF;
-  --off-white: #F8F9FA;
-  --grey-light: #F0F4F8;
-  --grey-med: #DEE4ED;
-  --grey-dark: #3D4A5C;
-  --text: #1A2332;
-  --shadow: 0 2px 12px rgba(31,78,121,0.10);
-  --shadow-lg: 0 8px 32px rgba(31,78,121,0.15);
-  --radius: 10px;
-  --radius-sm: 6px;
+:root{
+  --g900:#123E25; --g800:#15532F; --g700:#1C6B3C; --g600:#218A48; --g500:#37A65C;
+  --g300:#86C9A0; --g100:#E4F3E9; --g50:#F1F8F3;
+  --e700:#8C3A1F; --e600:#AE4A2C; --e500:#C75A3B; --e100:#F7E9E2;
+  --blue:#2F5E73;
+  --ink:#16271D; --muted:#5A6B60; --paper:#F6FAF5; --card:#FFFFFF; --line:#DBE7DE;
+  --shadow:0 2px 14px rgba(20,60,35,.08); --shadow-lg:0 10px 34px rgba(20,60,35,.14);
+  --radius:12px; --radius-sm:7px;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Source Sans 3', sans-serif;
-  background: var(--off-white);
-  color: var(--text);
-  min-height: 100vh;
-  font-weight: 300;
-}
-
-/* ── HEADER ─────────────────────────────────────────────────────── */
-header {
-  background: linear-gradient(135deg, var(--navy) 0%, #2a6099 60%, var(--blue) 100%);
-  color: white;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-}
-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 48px 32px 40px;
-  position: relative;
-}
-.header-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.9);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 46px);
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 14px;
-  letter-spacing: -0.5px;
-}
-header h1 span { color: #7EC8E3; }
-.header-sub {
-  font-size: 16px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.8);
-  max-width: 600px;
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-.header-stats {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-.stat {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: var(--radius-sm);
-  padding: 10px 18px;
-  text-align: center;
-}
-.stat-num {
-  display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1;
-}
-.stat-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.75;
-}
-.header-credit {
-  margin-top: 24px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.55);
-  font-style: italic;
-}
-.header-credit a { color: rgba(255,255,255,0.7); text-decoration: none; }
-
-/* ── CONTROLS ────────────────────────────────────────────────────── */
-.controls {
-  background: white;
-  border-bottom: 1px solid var(--grey-med);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: var(--shadow);
-}
-.controls-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 14px 32px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.search-wrap {
-  position: relative;
-  flex: 1;
-  min-width: 200px;
-}
-.search-wrap svg {
-  position: absolute;
-  left: 12px; top: 50%;
-  transform: translateY(-50%);
-  color: #94a3b8;
-  pointer-events: none;
-}
-#search {
-  width: 100%;
-  padding: 9px 12px 9px 38px;
-  border: 1.5px solid var(--grey-med);
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-family: inherit;
-  background: var(--off-white);
-  color: var(--text);
-  transition: border-color .2s, box-shadow .2s;
-}
-#search:focus {
-  outline: none;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(46,117,182,0.12);
-  background: white;
-}
-.filter-btns {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.filter-btn {
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--grey-med);
-  background: white;
-  font-size: 12px;
-  font-family: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  color: var(--grey-dark);
-  transition: all .15s;
-  white-space: nowrap;
-}
-.filter-btn:hover { border-color: var(--blue); color: var(--blue); }
-.filter-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
-.result-count {
-  font-size: 12px;
-  color: #94a3b8;
-  white-space: nowrap;
-  margin-left: auto;
-}
-
-/* ── MAIN ────────────────────────────────────────────────────────── */
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 32px 64px;
-}
-
-/* ── CATEGORY CARD ───────────────────────────────────────────────── */
-.cat-card {
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin-bottom: 16px;
-  overflow: hidden;
-  transition: box-shadow .2s;
-  border: 1px solid var(--grey-med);
-}
-.cat-card:hover { box-shadow: var(--shadow-lg); }
-.cat-card.hidden { display: none; }
-.cat-card.no-video .cat-header { background: linear-gradient(90deg, #8a9bb0, #a0afc2); }
-
-.cat-header {
-  background: linear-gradient(90deg, var(--navy), var(--blue));
-  color: white;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  gap: 12px;
-  user-select: none;
-  transition: filter .15s;
-}
-.cat-header:hover { filter: brightness(1.08); }
-
-.cat-header-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-  min-width: 0;
-}
-.cat-icon {
-  width: 36px; height: 36px;
-  background: rgba(255,255,255,0.18);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-.cat-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.2px;
-}
-.cat-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.badge {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 12px;
-  letter-spacing: 0.3px;
-}
-.badge-count { background: rgba(255,255,255,0.2); color: white; }
-.badge-todo { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-style: italic; }
-.cat-toggle {
-  width: 24px; height: 24px;
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .25s cubic-bezier(.4,0,.2,1);
-  flex-shrink: 0;
-}
-.cat-toggle svg { width: 16px; height: 16px; }
-.cat-card.open .cat-toggle { transform: rotate(90deg); }
-
-/* ── SPECS BAR ───────────────────────────────────────────────────── */
-.specs-bar {
-  background: var(--green-pale);
-  border-bottom: 1px solid #c3e6d0;
-  padding: 10px 20px;
-  display: none;
-  align-items: flex-start;
-  gap: 10px;
-}
-.cat-card.open .specs-bar { display: flex; }
-.specs-label {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--green);
-  white-space: nowrap;
-  margin-top: 2px;
-  flex-shrink: 0;
-}
-.specs-text {
-  font-size: 12.5px;
-  color: var(--green);
-  line-height: 1.6;
-  white-space: pre-line;
-}
-
-/* ── JOBS LIST ───────────────────────────────────────────────────── */
-.jobs-list {
-  display: none;
-  padding: 8px 0;
-}
-.cat-card.open .jobs-list { display: block; }
-
-.job-row {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 20px;
-  border-bottom: 1px solid #f1f5f9;
-  transition: background .1s;
-}
-.job-row:last-child { border-bottom: none; }
-.job-row:hover { background: #f8fafd; }
-.job-row.odd { background: #fafcff; }
-.job-row.odd:hover { background: #f0f6ff; }
-
-.job-name {
-  font-size: 13.5px;
-  color: var(--text);
-  font-weight: 400;
-  line-height: 1.4;
-}
-.job-name.placeholder {
-  color: #bdc5cf;
-  font-style: italic;
-  font-size: 12px;
-}
-
-.video-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 11px;
-  border-radius: 5px;
-  font-size: 11px;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.3px;
-  transition: filter .15s, transform .1s;
-  white-space: nowrap;
-}
-.video-btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
-.video-btn:active { transform: translateY(0); }
-.video-btn-1 { background: var(--purple); color: white; }
-.video-btn-2 { background: var(--orange); color: white; }
-.video-btn svg { width: 10px; height: 10px; }
-.video-empty {
-  width: 70px;
-  height: 26px;
-}
-
-/* ── SECTION SEPARATOR ───────────────────────────────────────────── */
-.section-sep {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 36px 0 20px;
-}
-.section-sep span {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #94a3b8;
-  white-space: nowrap;
-}
-.section-sep::before, .section-sep::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--grey-med);
-}
-
-/* ── EMPTY STATE ─────────────────────────────────────────────────── */
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: #94a3b8;
-  display: none;
-}
-.empty-state svg { width: 48px; height: 48px; margin-bottom: 16px; opacity: .4; }
-.empty-state p { font-size: 15px; }
-
-/* ── FOOTER ──────────────────────────────────────────────────────── */
-footer {
-  background: var(--navy);
-  color: rgba(255,255,255,0.6);
-  text-align: center;
-  padding: 24px 32px;
-  font-size: 12px;
-  line-height: 1.8;
-}
-footer strong { color: rgba(255,255,255,0.85); }
-footer a { color: rgba(255,255,255,0.7); }
-
-/* ── RESPONSIVE ──────────────────────────────────────────────────── */
-@media (max-width: 640px) {
-  .header-inner { padding: 32px 16px 28px; }
-  .controls-inner { padding: 12px 16px; }
-  main { padding: 20px 16px 48px; }
-  .header-stats { gap: 12px; }
-  .stat { padding: 8px 14px; }
-  .job-row { grid-template-columns: 1fr; gap: 6px; }
-  .cat-meta .badge-count { display: none; }
-}
-
-/* ── ANIMATIONS ──────────────────────────────────────────────────── */
-.cat-card { animation: fadeUp .3s ease both; }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Sans 3',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;font-weight:300;line-height:1.5}
+a{color:inherit}
+header{background:linear-gradient(135deg,var(--g900) 0%,var(--g700) 55%,var(--g500) 100%);color:#fff;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.header-inner{max-width:1100px;margin:0 auto;padding:46px 32px 38px;position:relative}
+.header-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:5px 14px;border-radius:30px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-bottom:18px}
+h1{font-family:'Playfair Display',serif;font-weight:700;font-size:2.7rem;line-height:1.08;margin-bottom:14px}
+h1 span{color:var(--g300);display:inline-block;border-bottom:3px solid var(--e500);padding-bottom:2px}
+.header-sub{font-size:1.05rem;max-width:620px;opacity:.94;font-weight:300}
+.header-stats{display:flex;gap:34px;margin:26px 0 18px}
+.stat{display:flex;flex-direction:column}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1}
+.stat-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;opacity:.8;margin-top:3px}
+.header-credit{font-size:.85rem;opacity:.85}
+.header-credit a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.controls{position:sticky;top:0;z-index:20;background:rgba(246,250,245,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.controls-inner{max-width:1100px;margin:0 auto;padding:14px 32px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.search-wrap{flex:1;min-width:240px;display:flex;align-items:center;gap:9px;background:var(--card);border:1.5px solid var(--line);border-radius:30px;padding:9px 16px;color:var(--muted);transition:.18s}
+.search-wrap:focus-within{border-color:var(--g500);box-shadow:0 0 0 3px rgba(55,166,92,.16)}
+.search-wrap input{border:none;outline:none;flex:1;font-family:inherit;font-size:.96rem;color:var(--ink);background:transparent;font-weight:300}
+.filter-btns{display:flex;gap:7px}
+.filter-btn{border:1.5px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:30px;font-family:inherit;font-size:.88rem;font-weight:600;cursor:pointer;transition:.15s}
+.filter-btn:hover{border-color:var(--g300);color:var(--g700)}
+.filter-btn.active{background:var(--g700);border-color:var(--g700);color:#fff}
+.result-count{font-size:.85rem;color:var(--muted);font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:30px 32px 60px}
+.section-sep{display:flex;align-items:center;gap:16px;margin:26px 0 16px;color:var(--g700)}
+.section-sep::before,.section-sep::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--g300),transparent)}
+.section-sep span{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+#sep-todo{color:var(--e600)}
+#sep-todo::before,#sep-todo::after{background:linear-gradient(90deg,transparent,#E3B7A6,transparent)}
+.cat-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden;transition:.2s}
+.cat-card:hover{box-shadow:var(--shadow-lg)}
+.cat-card.no-video{background:#FAFBFA}
+.cat-card.hidden{display:none}
+.cat-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;cursor:pointer;gap:14px}
+.cat-header-left{display:flex;align-items:center;gap:14px;min-width:0}
+.cat-icon{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;background:var(--g100);border-radius:11px;font-size:1.3rem}
+.no-video .cat-icon{background:var(--e100)}
+.cat-name{font-family:'Playfair Display',serif;font-weight:600;font-size:1.16rem;color:var(--ink)}
+.cat-meta{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.badge{font-size:.76rem;font-weight:700;padding:4px 11px;border-radius:30px;white-space:nowrap}
+.badge-count{background:var(--g100);color:var(--g800)}
+.badge-todo{background:var(--e100);color:var(--e700)}
+.cat-toggle svg{width:20px;height:20px;color:var(--muted);transition:transform .22s}
+.cat-card.open .cat-toggle svg{transform:rotate(90deg)}
+.specs-bar{padding:0 20px 14px;display:flex;flex-direction:column;gap:7px}
+.specs-row{display:flex;gap:10px;align-items:flex-start;font-size:.9rem}
+.specs-chip{font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+.chip-spec{background:var(--g100);color:var(--g800)}
+.chip-opt{background:#EAF1F4;color:var(--blue)}
+.chip-deb{background:var(--e100);color:var(--e700)}
+.specs-text{color:var(--ink);font-weight:400}
+.specs-text.muted{color:var(--muted);font-weight:300}
+.jobs-list{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.cat-card.open .jobs-list{max-height:6000px}
+.job-row{display:flex;align-items:center;gap:14px;padding:11px 20px;border-top:1px solid var(--line)}
+.job-row.odd{background:var(--g50)}
+.no-video .job-row.odd{background:#F4F6F4}
+.job-info{flex:1;min-width:0}
+.job-name{font-size:.97rem;font-weight:600;color:var(--ink);display:block}
+.job-name.placeholder{color:#9AA89E;font-style:italic;font-weight:400}
+.job-desc{font-size:.84rem;color:var(--muted);font-weight:300;margin-top:2px}
+.video-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:30px;font-size:.83rem;font-weight:700;text-decoration:none;color:#fff;white-space:nowrap;transition:.15s;flex-shrink:0}
+.video-btn svg{width:13px;height:13px}
+.video-btn-1{background:linear-gradient(135deg,var(--g600),var(--g700))}
+.video-btn-1:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.video-btn-2{background:linear-gradient(135deg,var(--e500),var(--e600))}
+.video-btn-2:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.video-empty{width:1px}
+.empty-state{display:none;text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state svg{width:46px;height:46px;margin-bottom:14px;opacity:.5}
+footer{background:var(--g900);color:#D9E7DD;text-align:center;padding:28px 32px;font-size:.86rem;line-height:1.7}
+footer strong{color:#fff}
+footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
+@media(max-width:640px){
+  h1{font-size:2.05rem}.header-inner{padding:34px 20px 28px}.header-stats{gap:22px}
+  .controls-inner,main{padding-left:18px;padding-right:18px}
+  .job-row{flex-wrap:wrap}.video-btn{font-size:.8rem;padding:6px 11px}
+  .cat-name{font-size:1.05rem}
 }
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-inner">
     <div class="header-badge">Ressource pédagogique SVT</div>
-    <h1>Vidéos d'Orientation<br><span>Sciences du Vivant & de la Terre</span></h1>
+    <h1>Vidéos d'Orientation<br><span>Sciences du Vivant &amp; de la Terre</span></h1>
     <p class="header-sub">Découvrez des métiers accessibles avec la spécialité SVT, à travers des témoignages vidéo courts de professionnels.</p>
     <div class="header-stats">
-      <div class="stat">
-        <span class="stat-num" id="stat-cats">51</span>
-        <span class="stat-label">Catégories</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num" id="stat-jobs">267</span>
-        <span class="stat-label">Métiers</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num" id="stat-videos">265</span>
-        <span class="stat-label">Vidéos</span>
-      </div>
+      <div class="stat"><span class="stat-num" id="stat-cats">51</span><span class="stat-label">Catégories</span></div>
+      <div class="stat"><span class="stat-num" id="stat-jobs">270</span><span class="stat-label">Métiers</span></div>
+      <div class="stat"><span class="stat-num" id="stat-videos">285</span><span class="stat-label">Vidéos</span></div>
     </div>
-    <p class="header-credit">Par Lucas Bollori, professeur de SVT &nbsp;·&nbsp; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></p>
+    <p class="header-credit">Par Lucas Bollori, professeur de SVT &nbsp;·&nbsp; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
   </div>
 </header>
-
 <div class="controls">
   <div class="controls-inner">
     <div class="search-wrap">
@@ -459,7 +132,6 @@ footer a { color: rgba(255,255,255,0.7); }
     <span class="result-count" id="result-count"></span>
   </div>
 </div>
-
 <main>
   <div id="sep-videos" class="section-sep"><span>Catégories renseignées</span></div>
   <div id="cats-with-videos"></div>
@@ -470,185 +142,79 @@ footer a { color: rgba(255,255,255,0.7); }
     <p>Aucun résultat pour cette recherche.</p>
   </div>
 </main>
-
 <footer>
   <strong>Vidéos d'Orientation SVT</strong> &nbsp;·&nbsp; Lucas Bollori, professeur de SVT<br>
-  Licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons CC BY-NC-SA 4.0</a> &nbsp;·&nbsp; Usage pédagogique libre &nbsp;·&nbsp; Les vidéos sont la propriété de leurs auteurs respectifs
+  Licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons CC BY-NC-SA 4.0</a> &nbsp;·&nbsp; Usage pédagogique libre &nbsp;·&nbsp; Les vidéos sont la propriété de leurs auteurs respectifs
 </footer>
-
 <script>
-const DATA = [{"name": "Agroalimentaire", "specs": "SVT + Physique-Chimie ou SVT + Maths → Écoles d'ingénieurs agro", "hasVideos": true, "jobs": [{"name": "Responsable planification ordonnancement", "url1": "https://www.youtube.com/watch?v=VIT2l42-9a0", "url2": null}, {"name": "Responsable qualité junior", "url1": "https://www.youtube.com/watch?v=S6ZssW3ZolI", "url2": null}, {"name": "Animateur Terra Vitis", "url1": "https://www.youtube.com/watch?v=U1dPHTQJb7E", "url2": null}, {"name": "Attachée de développement agronomique et marketing", "url1": "https://www.youtube.com/watch?v=3qqNm9AFpjI", "url2": null}, {"name": "Ingénieure production conditionnement", "url1": "https://www.youtube.com/watch?v=Cbo7pvQwJs8", "url2": null}, {"name": "Cheffe de produit Diagorisk - Gestion risques", "url1": "https://www.youtube.com/watch?v=I96CMNI22tk", "url2": null}, {"name": "Marketing scientifique - Cheffe de projet conception & cheffe de produits extraits", "url1": "https://www.youtube.com/watch?v=h56DfJDTw88", "url2": null}]}, {"name": "Agronomie", "specs": "SVT + Physique-Chimie ou SVT + Maths → Prépa BCPST → écoles agro", "hasVideos": true, "jobs": [{"name": "Paysanne installée en exploitation agricole", "url1": "https://www.youtube.com/watch?v=6tt4w9I80-4", "url2": null}, {"name": "Eleveur caprin", "url1": "https://www.youtube.com/watch?v=z_9lkaBSdR8&list=PLqvVw037WdRWTu96_Ws0RAReT9wehsdor&index=28", "url2": null}, {"name": "Algoculteur", "url1": "https://www.youtube.com/watch?v=wFn7OYcRv4Y", "url2": null}, {"name": "Arboriculteur", "url1": "https://www.youtube.com/watch?v=gvYJYcmnDVg", "url2": null}, {"name": "Consultante nutrition et robots en élevages laitiers", "url1": "https://www.youtube.com/watch?v=qdzHT9M07iw", "url2": null}, {"name": "Ingénieure conseil en viticulture", "url1": "https://www.youtube.com/watch?v=q5l9mHtkXjM", "url2": null}, {"name": "Responsable de site pour des vignerons", "url1": "https://www.youtube.com/watch?v=D3NGcI3k2pI", "url2": null}, {"name": "Chargé de mission projets agricoles durables", "url1": "https://www.youtube.com/watch?v=Tn0gGKZPvrc", "url2": null}, {"name": "Chargée d'étude sur les nouvelles techniques d'améliorations de plantes", "url1": "https://www.youtube.com/watch?v=ApVLZithjU0", "url2": null}, {"name": "Chef de projet au laboratoire de pathologie", "url1": "https://www.youtube.com/watch?v=9fcwHVU2kNA", "url2": null}, {"name": "Responsable nationale des études VATE", "url1": "https://www.youtube.com/watch?v=y-3hcNGOomM", "url2": null}, {"name": "Analyste en biologie moléculaire", "url1": "https://www.youtube.com/watch?v=I1A9woKs6fo", "url2": null}, {"name": "Semencier", "url1": "https://www.youtube.com/watch?v=Z8AETciUwxU", "url2": null}, {"name": "Chef de produit semence", "url1": "https://www.youtube.com/watch?v=7m77qdUN44o", "url2": null}, {"name": "Responsable d'équipe au laboratoire de germination", "url1": "https://www.youtube.com/watch?v=6vZcVAWruh8", "url2": "https://www.youtube.com/watch?v=CNt45ox6Reg"}, {"name": "Homologation d'essais VATE", "url1": "https://www.youtube.com/watch?v=F_cnX2tF_G0", "url2": null}, {"name": "Chargée de projet sur biocontrôle et biostimulation", "url1": "https://www.youtube.com/watch?v=bF5LVQZLoeA", "url2": null}, {"name": "Analyste laboratoire dans la production de semences", "url1": "https://www.youtube.com/watch?v=T9FrJyVVJus", "url2": null}, {"name": "Biostatisticien", "url1": "https://www.youtube.com/watch?v=79Wtw8vBQnI", "url2": null}, {"name": "Technicienne en expérimentations végétales", "url1": "https://www.youtube.com/watch?v=RMkgCWwuN-M", "url2": null}, {"name": "Entomologiste au Cirad", "url1": "https://www.youtube.com/watch?v=y_yrOsulKOA", "url2": null}, {"name": "Coordinateur des activités de phénotypage numérique", "url1": "https://www.youtube.com/watch?v=ol7TCJmcswI", "url2": null}, {"name": "Responsable DHS", "url1": "https://www.youtube.com/watch?v=4-Ukx2veXMo", "url2": "https://www.youtube.com/watch?v=9QDJDaZXR0M"}, {"name": "Directeur d'Unité et Responsable VATE Plantes fourragères et Plantes de services", "url1": "https://www.youtube.com/watch?v=wUs1e7i8hfg", "url2": null}, {"name": "Animatrice de la coordination nationale de la conservation des RPG", "url1": "https://www.youtube.com/watch?v=nOHvcIU9Nls", "url2": null}, {"name": "Responsable Animation et Expertise DHS", "url1": "https://www.youtube.com/watch?v=ObmqXo7aId0", "url2": null}, {"name": "Secrétaire technique et Responsable DHS maïs et sorgho", "url1": "https://www.youtube.com/watch?v=U91Scoq6xl0", "url2": null}, {"name": "Secrétaire Technique Arbres Fruitiers", "url1": "https://www.youtube.com/watch?v=oxSWoMm8RY0", "url2": null}, {"name": "Responsable Dénominations variétales", "url1": "https://www.youtube.com/watch?v=CG7whlQF5K4", "url2": null}]}, {"name": "Biochimie", "specs": "SVT + Physique-Chimie | Maths → Licences bio-chimie, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur recherche", "url1": "https://www.youtube.com/watch?v=MdNZvWa8mDI", "url2": null}, {"name": "Ingénieur d'étude", "url1": "https://www.youtube.com/watch?v=MdNZvWa8mDI", "url2": null}, {"name": "Technicien.ne. Supérieur de labo", "url1": "https://www.youtube.com/watch?v=MdNZvWa8mDI", "url2": null}, {"name": "Chercheur biochimiste", "url1": "https://www.youtube.com/watch?v=ncTTsng_BG0", "url2": null}]}, {"name": "Biodiversité", "specs": "SVT + HGGSP ou SVT + Physique-Chimie → Plusieurs combinaisons possibles", "hasVideos": true, "jobs": [{"name": "Chef de projet biodiversité", "url1": "https://www.youtube.com/watch?v=VPUewvROI5g", "url2": null}, {"name": "Délégué à la COP15 Biodiversité", "url1": "https://www.youtube.com/watch?v=wPfYi3go1kY", "url2": null}, {"name": "Systématicien et zoologiste", "url1": "https://www.youtube.com/watch?v=WodJSfMJIps", "url2": null}, {"name": "Biologiste de la conservation et de la gestion de la faune", "url1": "https://www.youtube.com/watch?v=9hVJXEAV31c", "url2": null}, {"name": "Technicienne de recherche", "url1": "https://www.youtube.com/watch?v=ZAB1DiqHtb4&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=2", "url2": null}, {"name": "Chef de projet en biodiversité marine", "url1": "https://www.youtube.com/watch?v=CkJ3eVtrlos", "url2": null}, {"name": "Chargé de mission forêt & biodiversité", "url1": "https://www.youtube.com/watch?v=QdBJ3o3SMS0", "url2": null}, {"name": "Chargée de missions de recherche OFB", "url1": "https://www.youtube.com/watch?v=oNF4tRAJetw&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=3", "url2": null}, {"name": "Chargée de recherche  OFB", "url1": "https://www.youtube.com/watch?v=2QCDh5bpBAU&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=4", "url2": null}, {"name": "Conservateur de réserve naturelle  OFB", "url1": "https://www.youtube.com/watch?v=mcSt1Cy_zdc&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=5", "url2": null}, {"name": "Direction et coordination de l'appui aux stratégies pour la biodiversité  OFB", "url1": "https://www.youtube.com/watch?v=zmWkytuXfAE&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=6", "url2": null}, {"name": "Chef d'unité à l'OFB - milieu lacustre", "url1": "https://www.youtube.com/watch?v=Zxctvz9ZuGM&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=8", "url2": null}, {"name": "Référent police contrôle environnement -OFB", "url1": "https://www.youtube.com/watch?v=jLb3lRa3osA&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=9", "url2": null}, {"name": "Inspecteur de l'environnement - OFB", "url1": "https://www.youtube.com/watch?v=KsSOB2ZwIlI&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=10", "url2": null}, {"name": "Chargée de missions pêche - OFB", "url1": "https://www.youtube.com/watch?v=cPtyOlvvKXA&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=11", "url2": null}]}, {"name": "Bioinformatique", "specs": "SVT + Maths | NSI → Licences info/bio, masters bioinformatique", "hasVideos": true, "jobs": [{"name": "Biologiste computationnel.le", "url1": "https://www.youtube.com/watch?v=l9i5Sgr_cBU", "url2": null}, {"name": "Bioinformaticien en génétique moléculaire", "url1": "https://www.youtube.com/watch?v=zkaUzJEqC6c", "url2": null}, {"name": "Bioinformaticienne marine", "url1": "https://www.youtube.com/watch?v=-_s0rvHvjtA", "url2": null}, {"name": "Bioinformaticien en milieu hospitalier", "url1": "https://www.youtube.com/watch?v=lnzJzaseOco", "url2": null}, {"name": "Coordinateur des activités de phénotypage numérique", "url1": "https://www.youtube.com/watch?v=ol7TCJmcswI", "url2": null}]}, {"name": "Biologie cellulaire", "specs": "SVT + Physique-Chimie | Maths → Licences bio, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Géomicrobiologie", "url1": "https://www.youtube.com/watch?v=Ous7QrDkgcc", "url2": null}, {"name": "Microbiologiste à l'hopital", "url1": "https://www.youtube.com/watch?v=7b3nlaX7m0Y", "url2": null}, {"name": "Microbiologiste", "url1": "https://www.youtube.com/watch?v=tkKmqog5sJc", "url2": null}, {"name": "Chercheuse en microbiologie", "url1": "https://www.youtube.com/watch?v=tkKmqog5sJc", "url2": null}, {"name": "Chargé de recherche CNRS à l'iBV (CNRS-INSERM_UCA)", "url1": "https://www.youtube.com/watch?v=tdeRLQzdIL8", "url2": null}, {"name": "Technicienne en contrôle qualité", "url1": "https://www.youtube.com/watch?v=i7P0chS45rA", "url2": null}]}, {"name": "Biologie moléculaire", "specs": "SVT + Physique-Chimie | Maths → Licences bio, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur recherche", "url1": "https://www.youtube.com/watch?v=grpM9NdXOns", "url2": "https://www.youtube.com/watch?v=hpClhCR6wJs"}, {"name": "Epidémiologiste moléculaire", "url1": "https://www.youtube.com/watch?v=9yTe07qiRUI", "url2": null}, {"name": "Biologiste moléculaire", "url1": "https://www.youtube.com/watch?v=-2YrpCsEoK4", "url2": null}, {"name": "Analyste en biologie moléculaire", "url1": "https://www.youtube.com/watch?v=I1A9woKs6fo", "url2": null}]}, {"name": "Biologie végétale", "specs": "SVT + Physique-Chimie | Maths → Licence bio, prépa BCPST, écoles agro", "hasVideos": true, "jobs": [{"name": "Ethnobotaniste", "url1": "https://www.youtube.com/watch?v=hj6Uc78PUeM", "url2": null}]}, {"name": "Biotechnologies", "specs": "SVT + Physique-Chimie | Maths → Prépa BCPST, licences bio, écoles ingénieurs", "hasVideos": true, "jobs": [{"name": "Ingénieur technico-commercial", "url1": "https://www.youtube.com/watch?v=r39tvTwtULE", "url2": null}, {"name": "Responsable contrôle qualité en impression biologique", "url1": "https://www.youtube.com/watch?v=5rIjXfcgeMQ", "url2": null}, {"name": "Ingénieur responsable production tissus vivants", "url1": "https://www.youtube.com/watch?v=5rIjXfcgeMQ", "url2": null}, {"name": "Spécialiste en bioimpression", "url1": "https://www.youtube.com/watch?v=tAqCBfoH1MA", "url2": null}, {"name": "Ingénieur biomédical", "url1": "https://www.youtube.com/watch?v=2-H3KgBDURA", "url2": null}, {"name": "Technicien biomédical", "url1": "https://www.youtube.com/watch?v=FXtRUZyxDjA", "url2": null}]}, {"name": "Commerce", "specs": "Voie école commerce : libre choix — SVT conseillé (pharma, biotech, agro)\nVoie université : SVT + SES ou SVT + Maths", "hasVideos": true, "jobs": [{"name": "Acheteur hospitalier", "url1": "https://www.youtube.com/watch?v=1444FpEZCLE", "url2": null}]}, {"name": "Data science", "specs": "SVT + Maths | NSI → Licence info/maths — SVT apporte le contexte biologique", "hasVideos": true, "jobs": [{"name": "Ingénieur data Agro", "url1": "https://www.youtube.com/watch?v=-YrajFuEJxM", "url2": null}, {"name": "Analyste des données INSEP", "url1": "https://www.youtube.com/watch?v=FPN1Afjo0Ss", "url2": null}, {"name": "Analyste de données Cyclisme", "url1": "https://www.youtube.com/watch?v=x4sDjxuu51Y", "url2": null}, {"name": "Data manager en santé", "url1": "https://www.youtube.com/watch?v=0cTPwzAIDtY", "url2": null}, {"name": "Biostatisticienne", "url1": "https://www.youtube.com/watch?v=GvfANw1AOaw", "url2": "https://www.youtube.com/watch?v=79Wtw8vBQnI"}, {"name": "Formation en Analyse de données", "url1": "https://www.youtube.com/watch?v=msgXwL9v62Q", "url2": null}, {"name": "Ingénieurs bioanalystes", "url1": "https://www.youtube.com/watch?v=MonOkK3bP5Y", "url2": null}, {"name": "Attaché de recherche clinique", "url1": "https://www.youtube.com/watch?v=IsFjPsR7Sa8", "url2": null}]}, {"name": "Droit", "specs": "Voie Sciences Po / IEP : libre choix — SVT pour droit de l'environnement\nVoie faculté : SVT + HGGSP ou SVT + SES", "hasVideos": true, "jobs": [{"name": "Juriste en droit de l'environnement", "url1": "https://www.youtube.com/watch?v=sG7F5eBcaVs", "url2": null}, {"name": "Avocate en droit de l'environnement", "url1": "https://www.youtube.com/watch?v=na8NezT2n1U", "url2": null}, {"name": "Inspecteur de l'environnement", "url1": "https://www.youtube.com/watch?v=sH9mP2jmG_w", "url2": null}, {"name": "Spécialiste aux affaires réglementaires en pharmacologie", "url1": "https://www.youtube.com/watch?v=KK5FxyFAleg", "url2": null}]}, {"name": "Epidémiologie", "specs": "SVT + Maths | Physique-Chimie → Licences santé, master épidémio, PASS", "hasVideos": true, "jobs": [{"name": "Epidémiologiste", "url1": "https://www.youtube.com/watch?v=sag-knWne6o", "url2": "https://www.youtube.com/watch?v=BJEGkElc2Os"}, {"name": "Epidémiologiste moléculaire", "url1": "https://www.youtube.com/watch?v=9yTe07qiRUI", "url2": null}, {"name": "Epidémiologiste en santé environnementale", "url1": "https://www.youtube.com/watch?v=oOdrNcPoC1Q", "url2": null}]}, {"name": "Ethologie et comportement animal", "specs": "SVT + Physique-Chimie | HGGSP → Licence bio, master éthologie", "hasVideos": true, "jobs": [{"name": "Primatologue", "url1": "https://www.youtube.com/watch?v=r9hk8iX5YO0", "url2": null}, {"name": "Ethologue", "url1": "https://www.youtube.com/watch?v=LNEMLzlOfe8", "url2": null}]}, {"name": "Exobiologie", "specs": "SVT + Physique-Chimie + Maths → Prépa BCPST ou MPSI", "hasVideos": true, "jobs": [{"name": "Chercheur en exobiologie", "url1": "https://www.youtube.com/watch?v=X7Y2qPQvgUo", "url2": null}]}, {"name": "Finance", "specs": "Voie Sciences Po / école commerce : libre choix — SVT pour finance verte/ESG\nVoie université : SVT + Maths ou SVT + SES", "hasVideos": true, "jobs": [{"name": "Être experte investissement responsable", "url1": "https://www.youtube.com/watch?v=fL2ibAlnP-0", "url2": null}]}, {"name": "Forêts", "specs": "SVT + Physique-Chimie ou SVT + HGGSP → Écoles forestières, licences écologie", "hasVideos": true, "jobs": [{"name": "Ingénieur forestier", "url1": "https://www.youtube.com/watch?v=0DfTONqQP0Y", "url2": "https://www.youtube.com/watch?v=UDVIl5orU7E"}, {"name": "Responsable unité territoriale", "url1": "https://www.youtube.com/watch?v=jOL7meF1COw", "url2": null}, {"name": "Chargé de mission forêt & biodiversité", "url1": "https://www.youtube.com/watch?v=QdBJ3o3SMS0", "url2": null}]}, {"name": "Génétique", "specs": "SVT + Physique-Chimie | Maths → Licences bio, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur en génomique végétale", "url1": "https://www.youtube.com/watch?v=1FWZIn29XQ0", "url2": null}, {"name": "Généticien des populations", "url1": "https://www.youtube.com/watch?v=xLb4B5UN6EE", "url2": null}, {"name": "Conseiller en génétique", "url1": "https://www.youtube.com/watch?v=e2XIZZI9ojM", "url2": null}, {"name": "Généticien clinicien", "url1": "https://www.youtube.com/watch?v=non8TkaH8SE", "url2": null}, {"name": "Cytogénéticien", "url1": "https://www.youtube.com/watch?v=uWAyAU-GmlA", "url2": null}, {"name": "Ingénieur en cytogénétique", "url1": "https://www.youtube.com/watch?v=OiueMCEC9Qk", "url2": null}, {"name": "Technicien de laboratoire en génétique", "url1": "https://www.youtube.com/watch?v=S-9q-h7SC3U", "url2": null}, {"name": "Bioinformaticien en génétique moléculaire", "url1": "https://www.youtube.com/watch?v=zkaUzJEqC6c", "url2": null}, {"name": "Biologiste en génétique moléculaire", "url1": "https://www.youtube.com/watch?v=-2YrpCsEoK4", "url2": null}, {"name": "Fœtopathologiste", "url1": "https://www.youtube.com/watch?v=MpTdcFS9IC8", "url2": null}, {"name": "Chercheur en génétique en milieu hospitalier", "url1": "https://www.youtube.com/watch?v=WHrto2rYL-4", "url2": null}, {"name": "Paléogénéticien", "url1": "https://www.youtube.com/watch?v=I4r9FUoLp4c", "url2": null}]}, {"name": "Géosciences", "specs": "SVT + Physique-Chimie | Maths → Licences STU, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur.e. géologue", "url1": "https://youtu.be/mHoT5vcbFgk?si=qBBMV-4gf5e6reTT", "url2": null}, {"name": "Géophysicien", "url1": "https://youtu.be/ACbkEBlXTH8?si=l2SWOb-ovIVyG8SH", "url2": null}, {"name": "Climatologue", "url1": "https://youtu.be/O2XxW6L2jw0?si=7Z8tjuhIyIbW6Wtk", "url2": "https://www.youtube.com/watch?v=0I1-3VVNURQ"}, {"name": "Litholamelleur", "url1": "https://www.youtube.com/watch?v=8iFQXTZl11E", "url2": null}]}, {"name": "Géotechnique", "specs": "SVT + Physique-Chimie + Maths → Écoles d'ingénieurs, licence STU", "hasVideos": true, "jobs": [{"name": "Géotechnicien", "url1": "https://www.youtube.com/watch?v=XWrRMW_HvZE", "url2": null}, {"name": "Technicienne Laboratoire", "url1": "https://www.youtube.com/watch?v=gvRPaTA8pxc", "url2": null}, {"name": "Chef sondeur", "url1": "https://www.youtube.com/watch?v=6e4zn1fZn1s", "url2": null}, {"name": "Sondeur géotechnique", "url1": "https://www.youtube.com/watch?v=uGB-u06MPZU", "url2": null}, {"name": "Ingénieur.e. géotechnique", "url1": "https://youtu.be/F_vypqatduU?si=GF0L11VJ_Eopivd1", "url2": "https://www.youtube.com/watch?v=HLzSb86pPEU"}, {"name": "Chargé d'affaires géotechnique", "url1": "https://www.youtube.com/watch?v=zwyQpQocT40", "url2": null}, {"name": "Géomètre", "url1": "https://www.youtube.com/watch?v=_VRHRklcwD4&list=PLqvVw037WdRWTu96_Ws0RAReT9wehsdor&index=25", "url2": null}, {"name": "Les métiers de la géotechnique", "url1": "https://www.youtube.com/watch?v=2_YTnsOnFQ0", "url2": null}]}, {"name": "Hydrogéologie", "specs": "SVT + Physique-Chimie | Maths → Licence STU, masters hydrogéologie", "hasVideos": true, "jobs": [{"name": "Hydrogéologue", "url1": "https://youtu.be/FmMAzl6Ty70?si=lFChdMu6PjhnEtQc", "url2": null}, {"name": "Technicien.ne. hydrogéologue", "url1": "https://youtu.be/d5VL5D9X0sU?si=6KvmafrUEGf_j2iH", "url2": null}, {"name": "Ingénieur hydrogéologue", "url1": "https://www.youtube.com/watch?v=Vorpjt0rBR8", "url2": null}, {"name": "Chargée de missions scientifique biodiversité", "url1": "https://www.youtube.com/watch?v=oNF4tRAJetw&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=3", "url2": null}]}, {"name": "Missions scientifiques", "specs": "SVT + Physique-Chimie | Maths → Formations scientifiques variées", "hasVideos": true, "jobs": [{"name": "Les métiers du Marion Dufresne", "url1": "https://www.youtube.com/watch?v=wKr70yrRTU8", "url2": null}, {"name": "Les scientifiques du Marion Dufresne", "url1": "https://www.youtube.com/watch?v=OvRE0mLDOko", "url2": null}]}, {"name": "Météorologie", "specs": "SVT + Physique-Chimie + Maths → Prépa MPSI ou PCSI, école Météo France", "hasVideos": true, "jobs": [{"name": "Prévisionniste à Météo France", "url1": "https://www.youtube.com/watch?v=JxR23zXP6hY", "url2": null}, {"name": "Prévisionniste aéronautique", "url1": "https://www.youtube.com/watch?v=fQZ4IYYXRbY&list=PLT86PoJFs8KQP2naSrpwRlvxA8LD-kzwR&index=6", "url2": null}, {"name": "Prévisionniste avalanches", "url1": "https://www.youtube.com/watch?v=_EZFzGQRmSQ&list=PLT86PoJFs8KQP2naSrpwRlvxA8LD-kzwR&index=3", "url2": null}, {"name": "Météorologue océanographe dans l'armée", "url1": "https://www.youtube.com/watch?v=foe16S5Bh5U", "url2": null}, {"name": "Ingénieur météo", "url1": "https://www.youtube.com/watch?v=rssKZc2CBws", "url2": null}]}, {"name": "Neurosciences", "specs": "SVT + Physique-Chimie | Maths → Licences bio, médecine (PASS/L.AS)", "hasVideos": true, "jobs": [{"name": "Chercheur en neurobiologie", "url1": "https://www.youtube.com/watch?v=8wfaiuf87OQ", "url2": null}, {"name": "Médecin-chercheur en neurosciences", "url1": "https://www.youtube.com/watch?v=NSGMmQZ2wq8", "url2": null}, {"name": "Neuropsychologue", "url1": "https://www.youtube.com/watch?v=MikO5HlkUSA", "url2": null}]}, {"name": "Océanographie", "specs": "SVT + Physique-Chimie | Maths → Licence STU, prépa BCPST, masters", "hasVideos": true, "jobs": [{"name": "Chercheur en océanographie", "url1": "https://www.youtube.com/watch?v=wxImQEszv1Y", "url2": null}, {"name": "Chercheur en écotoxicologie marine", "url1": "https://www.youtube.com/watch?v=EwtR6rMZDrE", "url2": null}, {"name": "Chercheur en écologie marine", "url1": "https://www.youtube.com/watch?v=efa9HX_gJQA", "url2": null}, {"name": "Océanographe", "url1": "https://www.youtube.com/watch?v=-dWtCoZG1tw&t=35s", "url2": null}, {"name": "Ingénieur océanographe", "url1": "https://www.youtube.com/watch?v=jadSXkwzXr0", "url2": null}, {"name": "Plongeur biologiste marin", "url1": "https://www.youtube.com/watch?v=FBQpVTADWOQ", "url2": null}, {"name": "Biologiste marin responsable aquariologie", "url1": "https://www.youtube.com/watch?v=QuTb8IK0Ee0", "url2": null}, {"name": "Biologiste marin à Tahiti", "url1": "https://www.youtube.com/watch?v=c-71oOln4qo", "url2": null}, {"name": "Agent de la réserve marine", "url1": "https://www.youtube.com/watch?v=qA8bCdY2-HQ", "url2": null}, {"name": "Vétérinaire marin", "url1": "https://www.youtube.com/watch?v=7KU3FCwe_Vk", "url2": null}, {"name": "Bioacousticienne marine", "url1": "https://www.youtube.com/watch?v=SqyzwNB2ywY", "url2": null}, {"name": "Ingénieure hydrographe", "url1": "https://www.youtube.com/watch?v=KLVNosOwq5s", "url2": null}, {"name": "Bioinformaticienne marine", "url1": "https://www.youtube.com/watch?v=-_s0rvHvjtA", "url2": null}, {"name": "Ingénieur de recherche en biologie marine", "url1": "https://www.youtube.com/watch?v=Z0w7P4P768M", "url2": null}, {"name": "Ingénieur halieutique", "url1": "https://www.youtube.com/watch?v=2f_QCWBk8Vs", "url2": null}, {"name": "Contrôleur de pêche", "url1": "https://www.youtube.com/watch?v=NNrkHXV_OZM", "url2": null}, {"name": "Chargée de mission pêche maritime - OFB", "url1": "https://www.youtube.com/watch?v=cPtyOlvvKXA&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=11", "url2": null}, {"name": "Chargée d'études scientifiques - Kelonia", "url1": "https://www.youtube.com/watch?v=K3n9iEInEJI", "url2": null}, {"name": "Chef de projet en biodiversité marine", "url1": "https://www.youtube.com/watch?v=CkJ3eVtrlos", "url2": null}, {"name": "Chercheuse en biogéochimie marine", "url1": "https://www.youtube.com/watch?v=4HLrrGaiHRE", "url2": null}]}, {"name": "Optique & Vision", "specs": "SVT + Physique-Chimie | Maths → Licences bio (orthoptiste), physique, PASS", "hasVideos": true, "jobs": [{"name": "Ophtalmologiste", "url1": "https://www.youtube.com/watch?v=ShHbQyeCExs", "url2": null}, {"name": "Orthoptiste", "url1": "https://www.youtube.com/watch?v=tqojl0sdGKQ", "url2": null}, {"name": "Opticien-Lunetier", "url1": "https://www.youtube.com/watch?v=89RmRhwTDro", "url2": null}, {"name": "Optométriste", "url1": "https://www.youtube.com/watch?v=g4Pvopgkz5w", "url2": null}, {"name": "Ingénieur R&D en photonique", "url1": "https://www.youtube.com/watch?v=ZXcGFumUeV4", "url2": null}]}, {"name": "Paléontologie", "specs": "SVT + Physique-Chimie | HGGSP → Licence SVT puis master paléontologie", "hasVideos": true, "jobs": [{"name": "Paléontologue", "url1": "https://www.youtube.com/watch?v=iPZeIt2HHoU", "url2": null}, {"name": "Technicien préparateur en paléontologie", "url1": "https://www.youtube.com/watch?v=SiQXCYMtGZY", "url2": null}, {"name": "Conservateur en paléontologie", "url1": "https://www.youtube.com/watch?v=CKDB5E3NbvM", "url2": null}, {"name": "Restauratrice de fossiles", "url1": "https://www.youtube.com/watch?v=1Cu44OMWlnk", "url2": null}, {"name": "Préparateur-mouleur", "url1": "https://www.youtube.com/watch?v=qK9I_DXL9XI", "url2": null}]}, {"name": "Pharmacie", "specs": "SVT + Physique-Chimie | Maths → PASS ou L.AS", "hasVideos": true, "jobs": [{"name": "Directeur de recherche dans un laboratoire pharmaceutique", "url1": "https://www.youtube.com/watch?v=Bvh4gY4MDHg&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=4", "url2": null}, {"name": "Responsable qualité / Directeur dans un laboratoire pharmaceutique", "url1": "https://www.youtube.com/watch?v=CWRXrydDeOc&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=14", "url2": null}, {"name": "Chef.fe de projet en pharmacologie", "url1": "https://www.youtube.com/watch?v=S0o4yMm_Zmg", "url2": null}, {"name": "Microbiologiste", "url1": "https://www.youtube.com/watch?v=tkKmqog5sJc", "url2": null}, {"name": "Pharmacien hospitalier", "url1": "https://www.youtube.com/watch?v=lSCX-3OiQW4&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=7", "url2": null}, {"name": "Pharmacien d'officine", "url1": "https://www.youtube.com/watch?v=VdZ1Dr802vo&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=10", "url2": null}, {"name": "Chercheuse/Assistante hospitalo-universitaire en pharmacie", "url1": "https://www.youtube.com/watch?v=lSCX-3OiQW4&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=7", "url2": null}, {"name": "Spécialiste aux affaires réglementaires en pharmacologie", "url1": "https://www.youtube.com/watch?v=KK5FxyFAleg", "url2": null}, {"name": "Biostatisticienne", "url1": "https://www.youtube.com/watch?v=GvfANw1AOaw", "url2": "https://www.youtube.com/watch?v=79Wtw8vBQnI"}, {"name": "Biologiste médical", "url1": "https://www.youtube.com/watch?v=ksueXhuAqIg", "url2": null}, {"name": "Technicien de laboratoire", "url1": "https://www.youtube.com/watch?v=okbmBWNiul4", "url2": null}, {"name": "Associé.e de recherche clinique", "url1": "https://www.youtube.com/watch?v=kR4UpcLUCDk", "url2": null}]}, {"name": "Physiologie humaine", "specs": "SVT + Physique-Chimie | Maths → Licences bio, médecine (PASS)", "hasVideos": true, "jobs": [{"name": "Directrice de Recherche au laboratoire Biomécanique et Bioingénierie", "url1": "https://www.youtube.com/watch?v=TtOg_lGn15U", "url2": null}, {"name": "Enseignant chercheur en sciences du sport", "url1": "https://www.youtube.com/watch?v=rSKfN-FTyK0", "url2": null}, {"name": "Chercheuse en physiologie - cancer du sein", "url1": "https://www.youtube.com/watch?v=tdIBUHjsZQQ", "url2": null}]}, {"name": "Police scientifique", "specs": "SVT + Physique-Chimie | Maths → Licence bio ou chimie, masters criminalistique", "hasVideos": true, "jobs": [{"name": "Ingénieur de la police scientifique", "url1": "https://www.youtube.com/watch?v=y44u93xjkgA", "url2": null}, {"name": "Technicienne de la police scientifique", "url1": "https://www.youtube.com/watch?v=9AN5SLc0Uyw", "url2": null}, {"name": "Entomologiste légal à la gendarmerie nationale", "url1": "https://www.youtube.com/watch?v=9hVJXEAV31c", "url2": null}, {"name": "Médecin légiste", "url1": "https://www.youtube.com/watch?v=gZYhzGK4wa0", "url2": null}, {"name": "Référent police contrôle environnement -OFB", "url1": "https://www.youtube.com/watch?v=jLb3lRa3osA&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=9", "url2": null}, {"name": "Inspecteur de l'environnement - OFB", "url1": "https://www.youtube.com/watch?v=KsSOB2ZwIlI&list=PL6MJ0E_Nq6LTsVbnYgeHIsnK83_KT1B_h&index=10", "url2": null}]}, {"name": "Psychologie/Psychiatrie", "specs": "SVT + Physique-Chimie (psychiatrie) ou SVT + SES (psychologie sociale)", "hasVideos": true, "jobs": [{"name": "Psychomotricien", "url1": "https://www.youtube.com/watch?v=khpSKAprYHo", "url2": null}, {"name": "Psychiatre", "url1": "https://www.youtube.com/watch?v=jpluUP3QhMc", "url2": null}, {"name": "Préparateur mental (sport professionel)", "url1": "https://www.youtube.com/watch?v=6doNtSDKKyg", "url2": null}, {"name": "Neuropsychologue", "url1": "https://www.youtube.com/watch?v=MikO5HlkUSA", "url2": null}, {"name": "Psychologue", "url1": "https://www.youtube.com/watch?v=ZRYAu4l6S6A", "url2": null}, {"name": "Ethologue", "url1": "https://www.youtube.com/watch?v=LNEMLzlOfe8", "url2": null}]}, {"name": "Responsabilité sociétal des entreprises", "specs": "Voie Sciences Po / IEP : libre choix — SVT pour enjeux environnementaux\nVoie université : SVT + SES ou SVT + HGGSP", "hasVideos": true, "jobs": [{"name": "Responsable RSE à la Banque de France", "url1": "https://www.youtube.com/watch?v=rza9DeONVG8&t=8s", "url2": null}, {"name": "Responsable HygièneSantéEnvironnement", "url1": "https://www.youtube.com/watch?v=MzAkBY4jZ2k", "url2": null}, {"name": "Coordinatrice RSE", "url1": "https://www.youtube.com/watch?v=3jKzryob6h8", "url2": null}]}, {"name": "Santé - Professions médicales et paramédicales", "specs": "SVT + Physique-Chimie | Maths* → PASS, L.AS, écoles paramédicales", "hasVideos": true, "jobs": [{"name": "Cadre supérieur de santé à l'hôpital", "url1": "https://www.youtube.com/watch?v=vpkEWnwfKWs", "url2": null}, {"name": "Infirmiers anesthésistes", "url1": "https://youtu.be/AwIxKx2YCFY?si=xXfuywNGkvt4kTLM", "url2": "https://youtu.be/86EY_ctWCJ4?si=SDDL5wrO5oxw9f-M"}, {"name": "Infirmier de Bloc Opératoire (IBODE)", "url1": "https://www.youtube.com/watch?v=zsFJ5gTfQ70", "url2": null}, {"name": "Infirmier.e hygiéniste à l'hôpital", "url1": "https://www.youtube.com/watch?v=i2RxKoaeeg0", "url2": null}, {"name": "Infirmier libéral", "url1": "https://www.youtube.com/watch?v=rnIYuqZvFWI&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=15", "url2": null}, {"name": "Infirmier.e coordinatrice en HAD", "url1": "https://www.youtube.com/watch?v=uCjSa6VzREo", "url2": null}, {"name": "Infirmier.e de santé au travail", "url1": "https://www.youtube.com/watch?v=9tyfYdZXCa0", "url2": null}, {"name": "Infirmier.e en Pratique Avancée (IPA)", "url1": "https://www.youtube.com/watch?v=dIyS19FMkGM", "url2": null}, {"name": "Médecin généraliste", "url1": "https://www.youtube.com/watch?v=gwuq6rY3Fig&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=2", "url2": null}, {"name": "Médecin anesthésiste - réanimateur", "url1": "https://youtu.be/JcSVd9HKM4A?si=H52jKNAJvFJf9N87", "url2": null}, {"name": "Médecin endocrinologue", "url1": "https://www.youtube.com/watch?v=UzbD1q3Xq7I", "url2": null}, {"name": "Médecin orthorhinolaryngologiste (ORL)", "url1": "https://www.youtube.com/watch?v=-821mQFAGCs&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=12", "url2": null}, {"name": "Médecin gynécologue-obstétricien", "url1": "https://www.youtube.com/watch?v=RxhcvsZ4t9U", "url2": null}, {"name": "Médecin pédiatre", "url1": "https://www.youtube.com/watch?v=Nd_J1HlfoD8&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=17", "url2": null}, {"name": "Attaché de recherche clinique", "url1": "https://www.youtube.com/watch?v=IsFjPsR7Sa8", "url2": null}, {"name": "Coordinatrice en recherche clinique", "url1": "https://www.youtube.com/watch?v=HNdqZJC8LaY", "url2": null}, {"name": "Psychiatre hospitalier", "url1": "https://www.youtube.com/watch?v=jpluUP3QhMc", "url2": "https://www.youtube.com/watch?v=rEuTB3I2AOw&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=19"}, {"name": "Data manager en santé", "url1": "https://www.youtube.com/watch?v=0cTPwzAIDtY", "url2": null}, {"name": "Médecin légiste", "url1": "https://www.youtube.com/watch?v=gZYhzGK4wa0", "url2": null}, {"name": "Manipulateur radio en imagerie médicale", "url1": "https://www.youtube.com/watch?v=4DMKJEejbZY", "url2": "https://www.youtube.com/watch?v=JU5NPoYQaUk"}, {"name": "Kinésithérapeute (hopitaux puis libéral)", "url1": "https://youtu.be/RNM11Ix_7uw?si=OvhUgYP_MNIiUHy7", "url2": "https://youtu.be/zO361SZf8WU?si=8sBbKJeVN94fkQCS"}, {"name": "Masseur Kinésithérapeute INSEP (sport)", "url1": "https://www.youtube.com/watch?v=HujGytlPE1c", "url2": null}, {"name": "Ergothérapeute", "url1": "https://www.youtube.com/watch?v=ZkGJtEeE7W8", "url2": null}, {"name": "Psychomotricien", "url1": "https://www.youtube.com/watch?v=khpSKAprYHo", "url2": null}, {"name": "Pharmacien hospitalier", "url1": "https://www.youtube.com/watch?v=lSCX-3OiQW4&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=7", "url2": null}, {"name": "Diététicien.ne.", "url1": "https://youtu.be/mViohtOE1E4?si=LRJAP7vrKyXTfqQh", "url2": "https://www.youtube.com/watch?v=-FNkd5uz4k0"}, {"name": "Sage femme", "url1": "https://youtu.be/klk0J4V7qlk?si=ykj9ZLVFt-H4Gzon", "url2": null}, {"name": "Biologiste médical", "url1": "https://www.youtube.com/watch?v=ksueXhuAqIg", "url2": null}, {"name": "Technicien de laboratoire", "url1": "https://youtu.be/cnV0NTqowjw?si=5lrL7KrBOMV5rByU", "url2": null}, {"name": "Préparateur.trice en pharmacie à l'hôpital", "url1": "https://www.youtube.com/watch?v=TC7LMWqRqcQ", "url2": null}, {"name": "Aide soignant.e.", "url1": "https://youtu.be/fPIrAtiwj6E?si=N2v3bJ0-P6-Vq5zQ", "url2": "https://youtu.be/iCMWWxjoCxM?si=2wPzZShWm3r8r1Ws"}, {"name": "Chirurgienne-dentiste", "url1": "https://youtube.com/watch?v=NsXuTJxystM&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=17&pp=iAQB", "url2": null}, {"name": "Orthodontiste", "url1": "https://www.youtube.com/watch?v=f-BT2-KSzbE&list=PL-re0M1m0Ua_kgohb2WF-_R7n-_hD-1OU&index=13", "url2": null}, {"name": "Assistant.e. dentaire", "url1": "https://youtu.be/68m0emzBD-4?si=fEzCnDt7NBmykPK8", "url2": null}, {"name": "Auxiliaire de puériculture", "url1": "https://www.youtube.com/watch?v=lv03Rse4Yfo", "url2": null}, {"name": "Brancardier régulateur", "url1": "https://youtu.be/GwwGlqlFxNU?si=CJOong_SyNhpuSyP", "url2": null}, {"name": "Assistant de régulation médicale au SAMU", "url1": "https://www.youtube.com/watch?v=VbZSkcGiZps", "url2": null}, {"name": "Secrétaire médicale au laboratoire", "url1": "https://www.youtube.com/watch?v=wKJxezrwZis", "url2": null}, {"name": "Standardiste à l'hôpital", "url1": "https://www.youtube.com/watch?v=mU9fyxjwUeA", "url2": null}, {"name": "Animatrice qualité et gestion des risques", "url1": "https://www.youtube.com/watch?v=yWqSTqfKoiI", "url2": null}, {"name": "Acheteur hospitalier", "url1": "https://www.youtube.com/watch?v=1444FpEZCLE", "url2": null}]}, {"name": "Santé - Thérapies complémentaires, accompagnement et bien-être", "specs": "SVT + Physique-Chimie ou SVT + SES → Licences bio, STAPS, psychologie", "hasVideos": true, "jobs": [{"name": "Ostéopathe", "url1": "https://www.youtube.com/watch?v=tZUbec4ZUuA", "url2": null}, {"name": "Chiropracteur", "url1": "https://www.youtube.com/watch?v=dVljSzOwndU", "url2": null}, {"name": "Psychologue", "url1": "https://www.youtube.com/watch?v=ZRYAu4l6S6A", "url2": null}, {"name": "Psychologue du travail à l'hopital", "url1": "https://www.youtube.com/watch?v=mI22WVEwLl4", "url2": null}, {"name": "Neuropsychologue", "url1": "https://www.youtube.com/watch?v=MikO5HlkUSA", "url2": null}, {"name": "Préparateur mental (sport professionel)", "url1": "https://www.youtube.com/watch?v=6doNtSDKKyg", "url2": null}]}, {"name": "Sciences de l'évolution", "specs": "SVT + Physique-Chimie | Maths ou HGGSP → Licence bio, master évolution", "hasVideos": true, "jobs": [{"name": "Paléobiologiste", "url1": "https://www.youtube.com/watch?v=qJgYv9WJpKA", "url2": null}, {"name": "Chercheuse en écologie évolutive", "url1": "https://www.youtube.com/watch?v=fvyxa2xwkio", "url2": null}]}, {"name": "Sport", "specs": "SVT + Physique-Chimie (STAPS-santé) ou SVT + HGGSP (sport et territoire)", "hasVideos": true, "jobs": [{"name": "Préparateur physique", "url1": "https://www.youtube.com/watch?v=WB3XoHaqJLg", "url2": null}, {"name": "Préparateur mental", "url1": "https://www.youtube.com/watch?v=6doNtSDKKyg", "url2": null}, {"name": "Masseur Kinésithérapeute INSEP", "url1": "https://www.youtube.com/watch?v=HujGytlPE1c", "url2": null}, {"name": "Educateur territorial ETAPS", "url1": "https://www.youtube.com/watch?v=R3O1_l2KFC0", "url2": null}, {"name": "Educatrice socio-sportive", "url1": "https://www.youtube.com/watch?v=bFA-AWpUhkE", "url2": null}, {"name": "Agent de développement", "url1": "https://www.youtube.com/watch?v=8gVb9nsMmTo", "url2": null}, {"name": "Enseignant en Activité Physique Adaptée", "url1": "https://www.youtube.com/watch?v=KZOY1TYeJnI", "url2": null}, {"name": "Analyste des données INSEP", "url1": "https://www.youtube.com/watch?v=FPN1Afjo0Ss", "url2": null}, {"name": "Analyste de données Cyclisme", "url1": "https://www.youtube.com/watch?v=x4sDjxuu51Y", "url2": null}, {"name": "Conseiller Technique de Ligue Triathlon", "url1": "https://www.youtube.com/watch?v=MCpBT_U8daQ", "url2": null}, {"name": "Conseillère technique national", "url1": "https://www.youtube.com/watch?v=eaneFYbeJmc", "url2": null}, {"name": "Directeur de Ligue Triathlon", "url1": "https://www.youtube.com/watch?v=hohOJPG7ndM", "url2": null}, {"name": "Directrice sportive/Directeur sportif", "url1": "https://www.youtube.com/watch?v=1iMZiwARv8A", "url2": null}, {"name": "Responsable de salle de sport", "url1": "https://www.youtube.com/watch?v=ZGzRfFtq3Qo", "url2": null}, {"name": "Organisateur d'événement sportif", "url1": "https://www.youtube.com/watch?v=7jyIS1CKozQ", "url2": null}, {"name": "Entraîneure Ski Nautique", "url1": "https://www.youtube.com/watch?v=_mWbEtIhpPU", "url2": null}, {"name": "Ingénieur Recherche et Développement en biomécanique chez Decathlon", "url1": "https://www.youtube.com/watch?v=Gs7ui-VSsXQ", "url2": null}, {"name": "Enseignant chercheur en sciences du sport", "url1": "https://www.youtube.com/watch?v=rSKfN-FTyK0", "url2": null}]}, {"name": "Apiculture & Entomologie appliquée", "specs": "SVT + Physique-Chimie | HGGSP → Licence bio, masters entomologie", "hasVideos": false, "jobs": []}, {"name": "Aquaculture & Pêche durable", "specs": "SVT + Physique-Chimie ou SVT + HGGSP → Licences bio marine", "hasVideos": false, "jobs": []}, {"name": "Biomatériaux & Implants", "specs": "SVT + Physique-Chimie | Maths* → Écoles ingénieurs biomédicaux", "hasVideos": false, "jobs": []}, {"name": "Biomimétisme & Éco-conception", "specs": "SVT + Physique-Chimie | Maths → Écoles d'ingénieurs, licences bio", "hasVideos": false, "jobs": []}, {"name": "Cosmétique & Dermatologie", "specs": "SVT + Physique-Chimie | Maths → Licences chimie-bio, écoles cosmétique", "hasVideos": false, "jobs": []}, {"name": "Enseignement & Recherche en SVT", "specs": "SVT + Physique-Chimie | Maths → Licence bio, master MEEF SVT", "hasVideos": false, "jobs": [{"name": "* Maths complémentaires : option Terminale pour les élèves ayant suivi Maths en 1ère puis l'ayant abandonné. | Tous les métiers de ce fichier sont accessibles avec SVT en 1ère.", "url1": null, "url2": null}]}, {"name": "Génie écologique & Restauration", "specs": "SVT + HGGSP ou SVT + Physique-Chimie → Licences écologie", "hasVideos": false, "jobs": []}, {"name": "Jardins & Espaces verts", "specs": "SVT + HGGSP ou SVT + Physique-Chimie → Licences pro paysage", "hasVideos": false, "jobs": []}, {"name": "Journalisme & Médiation scientifique", "specs": "Voie Sciences Po / journalisme : libre choix — SVT essentiel\nVoie université : SVT + HGGSP ou SVT + LLCER", "hasVideos": false, "jobs": []}, {"name": "Muséographie", "specs": "Voie patrimoine / IEP : libre choix — SVT indispensable muséums\nVoie université : SVT + HGGSP ou SVT + Arts", "hasVideos": false, "jobs": []}, {"name": "Muséologie scientifique", "specs": "Voie patrimoine / IEP : libre choix — SVT indispensable\nVoie université : SVT + HGGSP ou SVT + Arts", "hasVideos": false, "jobs": []}, {"name": "Mycologie & Champignons", "specs": "SVT + Physique-Chimie | Maths ou HGGSP → Licence bio, master mycologie", "hasVideos": false, "jobs": []}, {"name": "One Health / Santé globale", "specs": "SVT + Physique-Chimie | Maths ou HGGSP → PASS, licences bio, vétérinaire", "hasVideos": false, "jobs": []}, {"name": "Toxicologie & Sécurité chimique", "specs": "SVT + Physique-Chimie | Maths → Licences chimie ou bio, masters toxico", "hasVideos": false, "jobs": []}, {"name": "Vétérinaire & Santé animale", "specs": "SVT + Physique-Chimie | Maths → Prépa BCPST → ENV (concours sélectif)", "hasVideos": false, "jobs": [{"name": "* Maths complémentaires : option Terminale pour les élèves ayant suivi Maths en 1ère puis l'ayant abandonné. | Tous les métiers de ce fichier sont accessibles avec SVT en 1ère.", "url1": null, "url2": null}]}];
+const DATA = [{"name": "Agroalimentaire", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Prépa BCPST, écoles d'ingénieurs agro, licences", "hasVideos": true, "jobs": [{"name": "Responsable planification ordonnancement", "url1": "https://www.youtube.com/watch?v=VIT2l42-9a0", "url2": null, "desc": "Coordonner, rythmer et optimiser le calendrier de production d'une entreprise agroalimentaire"}, {"name": "Responsable qualité junior", "url1": "https://www.youtube.com/watch?v=S6ZssW3ZolI", "url2": null, "desc": "Contrôle la conformité des produits alimentaires aux normes sanitaires."}, {"name": "Animateur Terra Vitis", "url1": "https://www.youtube.com/watch?v=U1dPHTQJb7E", "url2": null, "desc": "Conseiller et accompagner les viticulteurs dans leur transition écologique"}, {"name": "Attachée de développement agronomique et marketing", "url1": "https://www.youtube.com/watch?v=3qqNm9AFpjI", "url2": null, "desc": "Accompagner et auditer les exploitants dans leur gestion technique, économique et environnementale"}, {"name": "Ingénieure production conditionnement", "url1": "https://www.youtube.com/watch?v=Cbo7pvQwJs8", "url2": null, "desc": "Piloter le développement, la stratégie marketing et la commercialisation d'un produit agroalimentaire"}, {"name": "Cheffe de produit Diagorisk - Gestion risques", "url1": "https://www.youtube.com/watch?v=I96CMNI22tk", "url2": null, "desc": "Coordination globale dans l'entreprise pour le produit et gestion des risques"}, {"name": "Marketing scientifique - Cheffe de projet conception & cheffe de produits extraits", "url1": "https://www.youtube.com/watch?v=h56DfJDTw88", "url2": null, "desc": "Développe des produits à base d'extraits naturels entre science, réglementation et marché."}]}, {"name": "Agronomie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Prépa BCPST → écoles d'agronomie", "hasVideos": true, "jobs": [{"name": "Paysanne installée en exploitation agricole", "url1": "https://www.youtube.com/watch?v=6tt4w9I80-4", "url2": null, "desc": "Gère une exploitation agricole en combinant production, vente directe et pratiques durables."}, {"name": "Eleveur caprin", "url1": "https://www.youtube.com/watch?v=z_9lkaBSdR8", "url2": null, "desc": "Élève des chèvres pour la production laitière ou fromagère."}, {"name": "Algoculteur", "url1": "https://www.youtube.com/watch?v=wFn7OYcRv4Y", "url2": null, "desc": "Cultive des algues à des fins alimentaires, cosmétiques ou énergétiques."}, {"name": "Arboriculteur", "url1": "https://www.youtube.com/watch?v=gvYJYcmnDVg", "url2": null, "desc": "Cultive des arbres fruitiers en gérant la taille, la protection et la récolte."}, {"name": "Consultante nutrition et robots en élevages laitiers", "url1": "https://www.youtube.com/watch?v=qdzHT9M07iw", "url2": null, "desc": "Conseille les éleveurs sur l'alimentation des vaches/chèvres et l'automatisation des étables."}, {"name": "Ingénieure conseil en viticulture", "url1": "https://www.youtube.com/watch?v=q5l9mHtkXjM", "url2": null, "desc": "Accompagne les vignerons dans la gestion technique de leurs vignes."}, {"name": "Responsable de site pour des vignerons", "url1": "https://www.youtube.com/watch?v=D3NGcI3k2pI", "url2": null, "desc": "Coordonne les activités d'un domaine viticole, de la culture à la commercialisation."}, {"name": "Chargé de mission projets agricoles durables", "url1": "https://www.youtube.com/watch?v=Tn0gGKZPvrc", "url2": null, "desc": "Développe et suit des projets d'agriculture durable pour des collectivités."}, {"name": "Chargée d'étude sur les nouvelles techniques d'améliorations de plantes", "url1": "https://www.youtube.com/watch?v=ApVLZithjU0", "url2": null, "desc": "Évalue les nouvelles méthodes d'amélioration et de sélection végétale."}, {"name": "Chef de projet au laboratoire de pathologie", "url1": "https://www.youtube.com/watch?v=9fcwHVU2kNA", "url2": null, "desc": "Coordonne différents projets notamment à travers des analyses sur les maladies des plantes cultivées."}, {"name": "Responsable nationale des études VATE", "url1": "https://www.youtube.com/watch?v=y-3hcNGOomM", "url2": null, "desc": "Pilote les études d'évaluation des nouvelles variétés végétales."}, {"name": "Analyste en biologie moléculaire", "url1": "https://www.youtube.com/watch?v=I1A9woKs6fo", "url2": null, "desc": "Réalise des analyses génétiques sur des organismes végétaux ou animaux."}, {"name": "Semencier", "url1": "https://www.youtube.com/watch?v=Z8AETciUwxU", "url2": null, "desc": "Produit et commercialise des semences sélectionnées pour les agriculteurs."}, {"name": "Chef de produit semence", "url1": "https://www.youtube.com/watch?v=7m77qdUN44o", "url2": null, "desc": "Développe et gère une gamme de semences en lien avec le marché agricole."}, {"name": "Responsable d'équipe au laboratoire de germination", "url1": "https://www.youtube.com/watch?v=6vZcVAWruh8", "url2": "https://www.youtube.com/watch?v=CNt45ox6Reg", "desc": "Encadrement d'équipe et analyses de germination d'espèces utiles"}, {"name": "Homologation d'essais VATE", "url1": "https://www.youtube.com/watch?v=F_cnX2tF_G0", "url2": null, "desc": "Avis agronomique et évaluation des variétés auprès des prestataires."}, {"name": "Chargée de projet sur biocontrôle et biostimulation", "url1": "https://www.youtube.com/watch?v=bF5LVQZLoeA", "url2": null, "desc": "Pilote des projets en biocontrôle et biostimulation des semences"}, {"name": "Analyste laboratoire dans la production de semences", "url1": "https://www.youtube.com/watch?v=T9FrJyVVJus", "url2": null, "desc": "Effectue des contrôles qualité sur les lots de semences en production."}, {"name": "Biostatisticien", "url1": "https://www.youtube.com/watch?v=79Wtw8vBQnI", "url2": null, "desc": "Analyse les données d'essais agronomiques à l'aide de méthodes statistiques."}, {"name": "Technicienne en expérimentations végétales", "url1": "https://www.youtube.com/watch?v=RMkgCWwuN-M", "url2": null, "desc": "Expertiser des nouvelles variétés"}, {"name": "Entomologiste au Cirad", "url1": "https://www.youtube.com/watch?v=y_yrOsulKOA", "url2": null, "desc": "Étudie les insectes nuisibles ou bénéfiques dans les agrosystèmes tropicaux"}, {"name": "Coordinateur des activités de phénotypage numérique", "url1": "https://www.youtube.com/watch?v=ol7TCJmcswI", "url2": null, "desc": "Développement de nouvelles technologies numériques pour réaliser des analyses de qualité des semences ou variétés"}, {"name": "Responsable DHS", "url1": "https://www.youtube.com/watch?v=4-Ukx2veXMo", "url2": "https://www.youtube.com/watch?v=9QDJDaZXR0M", "desc": "Gère les critères de distinction, homogénéité et stabilité des variétés végétales."}, {"name": "Directeur d'Unité et Responsable VATE Plantes fourragères et Plantes de services", "url1": "https://www.youtube.com/watch?v=wUs1e7i8hfg", "url2": null, "desc": "Dirige une unité de recherche sur l'évaluation des plantes fourragères à l'interface avec la commercialisation"}, {"name": "Animatrice de la coordination nationale de la conservation des RPG", "url1": "https://www.youtube.com/watch?v=nOHvcIU9Nls", "url2": null, "desc": "Coordonne la conservation des ressources phytogénétiques agricoles nationales."}, {"name": "Responsable Animation et Expertise DHS", "url1": "https://www.youtube.com/watch?v=ObmqXo7aId0", "url2": null, "desc": "Forme et coordonne les experts en charge des critères d'inscription variétale."}, {"name": "Secrétaire technique et Responsable DHS maïs et sorgho", "url1": "https://www.youtube.com/watch?v=U91Scoq6xl0", "url2": null, "desc": "Conduire les examens d'étude des variétés de maïs et sorgho."}, {"name": "Secrétaire Technique Arbres Fruitiers", "url1": "https://www.youtube.com/watch?v=oxSWoMm8RY0", "url2": null, "desc": "Centraliser toutes les demandes de coopération à l'international et rendre possible une réponse"}, {"name": "Responsable Dénominations variétales", "url1": "https://www.youtube.com/watch?v=CG7whlQF5K4", "url2": null, "desc": "Analyser les noms officiels des nouvelles variétés végétales."}]}, {"name": "Biochimie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences bio-chimie, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur recherche", "url1": "https://www.youtube.com/watch?v=MdNZvWa8mDI", "url2": null, "desc": "Conçoit et mène des expériences pour développer de nouveaux produits ou comprendre des mécanismes biologiques."}, {"name": "Ingénieur d'étude", "url1": "https://www.youtube.com/watch?v=MdNZvWa8mDI", "url2": null, "desc": "Réalise des études techniques et analyses dans un laboratoire de recherche ou industriel."}, {"name": "Technicien·ne supérieur·e de laboratoire", "url1": "https://www.youtube.com/watch?v=MdNZvWa8mDI", "url2": null, "desc": "Réalise des analyses biologiques ou chimiques en laboratoire selon des protocoles précis."}, {"name": "Chercheur biochimiste", "url1": "https://www.youtube.com/watch?v=ncTTsng_BG0", "url2": null, "desc": "Étudie les réactions chimiques dans les organismes vivants pour comprendre les maladies ou comprendre la fonction d'une molécule"}]}, {"name": "Biodiversité", "specs": "SVT + HGGSP ou SVT + Physique-Chimie", "options": "", "debouches": "Licences écologie/biologie (plusieurs combinaisons possibles)", "hasVideos": true, "jobs": [{"name": "Chef de projet biodiversité", "url1": "https://www.youtube.com/watch?v=VPUewvROI5g", "url2": null, "desc": "Pilote des programmes de préservation des espèces et des écosystèmes."}, {"name": "Délégué à la COP15 Biodiversité", "url1": "https://www.youtube.com/watch?v=wPfYi3go1kY", "url2": null, "desc": "Représente une organisation dans les négociations internationales sur la biodiversité."}, {"name": "Systématicien et zoologiste", "url1": "https://www.youtube.com/watch?v=WodJSfMJIps", "url2": null, "desc": "Identifie, classe et décrit les espèces animales // étudie les espèces animales"}, {"name": "Biologiste de la conservation et de la gestion de la faune", "url1": "https://www.youtube.com/watch?v=9hVJXEAV31c", "url2": null, "desc": "Étudie les populations animales sauvages pour proposer des mesures de protection."}, {"name": "Technicienne de recherche", "url1": "https://www.youtube.com/watch?v=ZAB1DiqHtb4", "url2": null, "desc": "Assiste les chercheurs dans la collecte et l'analyse de données biologiques."}, {"name": "Chef de projet en biodiversité marine", "url1": "https://www.youtube.com/watch?v=CkJ3eVtrlos", "url2": null, "desc": "Coordonne des programmes d'étude et de protection des espèces marines."}, {"name": "Chargé de mission forêt & biodiversité", "url1": "https://www.youtube.com/watch?v=QdBJ3o3SMS0", "url2": null, "desc": "Développe des actions de préservation de la biodiversité forestière."}, {"name": "Chargée de missions de recherche OFB", "url1": "https://www.youtube.com/watch?v=oNF4tRAJetw", "url2": null, "desc": "Mène des études sur l'état des milieux naturels pour l'Office Français de la Biodiversité."}, {"name": "Chargée de recherche  OFB", "url1": "https://www.youtube.com/watch?v=2QCDh5bpBAU", "url2": null, "desc": "Conduit des recherches appliquées sur les écosystèmes pour guider les politiques de conservation."}, {"name": "Conservateur de réserve naturelle  OFB", "url1": "https://www.youtube.com/watch?v=mcSt1Cy_zdc", "url2": null, "desc": "Gère et protège un espace naturel classé en coordonnant les suivis scientifiques."}, {"name": "Direction et coordination de l'appui aux stratégies pour la biodiversité  OFB", "url1": "https://www.youtube.com/watch?v=zmWkytuXfAE", "url2": null, "desc": "Pilote les programmes nationaux de soutien aux politiques de préservation."}, {"name": "Chef d'unité à l'OFB - milieu lacustre", "url1": "https://www.youtube.com/watch?v=Zxctvz9ZuGM", "url2": null, "desc": "Dirige une équipe chargée de la surveillance des écosystèmes lacustres."}, {"name": "Référent police contrôle environnement -OFB", "url1": "https://www.youtube.com/watch?v=jLb3lRa3osA", "url2": null, "desc": "Coordonne les enquêtes sur les infractions environnementales."}, {"name": "Inspecteur de l'environnement - OFB", "url1": "https://www.youtube.com/watch?v=KsSOB2ZwIlI", "url2": null, "desc": "Surveille et sanctionne les atteintes aux milieux naturels et à la faune sauvage."}, {"name": "Chargée de missions pêche - OFB", "url1": "https://www.youtube.com/watch?v=cPtyOlvvKXA", "url2": null, "desc": "Gère et surveille les populations halieutiques, piscicoles et les pratiques de pêche."}]}, {"name": "Bioinformatique", "specs": "SVT + Maths ou SVT + NSI", "options": "Maths conservée en Tle conseillée — sinon Maths compl. (option)", "debouches": "Licences info/bio, masters bioinformatique", "hasVideos": true, "jobs": [{"name": "Biologiste computationnel.le", "url1": "https://www.youtube.com/watch?v=l9i5Sgr_cBU", "url2": null, "desc": "Analyse de grandes bases de données biologiques et/ou médicales à l'aide d'algorithmes."}, {"name": "Bioinformaticien en génétique moléculaire", "url1": "https://www.youtube.com/watch?v=zkaUzJEqC6c", "url2": null, "desc": "Agréger l'ensemble des données produites par les analyses génétiques et les rendre accessibles aux biologistes"}, {"name": "Bioinformaticienne marine", "url1": "https://www.youtube.com/watch?v=-_s0rvHvjtA", "url2": null, "desc": "Accompagner les chercheurs en biologie moléculaire dans l'analyse de leurs données (comme la prédiction de gènes ou l'identification d'espèces marines)"}, {"name": "Bioinformaticien en milieu hospitalier", "url1": "https://www.youtube.com/watch?v=lnzJzaseOco", "url2": null, "desc": "Partir de données génomiques pour reconstruire des ADN complets d'agents pathogènes ou de patients."}, {"name": "Coordinateur des activités de phénotypage numérique", "url1": "https://www.youtube.com/watch?v=ol7TCJmcswI", "url2": null, "desc": "Développement de nouvelles technologies numériques pour réaliser des analyses de qualité des semences ou variétés"}]}, {"name": "Biologie cellulaire", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences bio, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Géomicrobiologie", "url1": "https://www.youtube.com/watch?v=Ous7QrDkgcc", "url2": null, "desc": "Étudie les interactions entre les micro-organismes et leur environnement."}, {"name": "Microbiologiste à l'hôpital", "url1": "https://www.youtube.com/watch?v=7b3nlaX7m0Y", "url2": null, "desc": "Analyse les prélèvements des patients pour identifier les agents infectieux."}, {"name": "Microbiologiste", "url1": "https://www.youtube.com/watch?v=tkKmqog5sJc", "url2": null, "desc": "Développer des procédés de fermentation microbienne pour cultiver des bactéries à grande échelle ou produire des molécules thérapeutiques ou des outils de diagnostic,"}, {"name": "Chercheuse en microbiologie", "url1": "https://www.youtube.com/watch?v=tkKmqog5sJc", "url2": null, "desc": "Mène des recherches sur les micro-organismes."}, {"name": "Chargé de recherche CNRS à l'iBV (CNRS-INSERM_UCA)", "url1": "https://www.youtube.com/watch?v=tdeRLQzdIL8", "url2": null, "desc": "Conduit des recherches fondamentales sur le développement et la biologie cellulaire."}, {"name": "Technicienne en contrôle qualité", "url1": "https://www.youtube.com/watch?v=i7P0chS45rA", "url2": null, "desc": "Vérifie la conformité des produits biologiques ou pharmaceutiques."}]}, {"name": "Biologie moléculaire", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences bio, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur recherche", "url1": "https://www.youtube.com/watch?v=grpM9NdXOns", "url2": "https://www.youtube.com/watch?v=hpClhCR6wJs", "desc": "Conçoit et mène des expériences pour développer de nouveaux produits ou comprendre des mécanismes biologiques."}, {"name": "Epidémiologiste moléculaire", "url1": "https://www.youtube.com/watch?v=9yTe07qiRUI", "url2": null, "desc": "Etudie les épidémies en combinant l'épidémiologie spatiale et l'analyse génétique des virus pour comprendre leur dynamique de propagation et leur évolution"}, {"name": "Biologiste moléculaire", "url1": "https://www.youtube.com/watch?v=-2YrpCsEoK4", "url2": null, "desc": "Étudie les mécanismes de l'ADN, de l'ARN et des protéines à l'échelle moléculaire pour par exemple identifier des anomalies au niveau de l'ADN chez les patients afin de poser un diagnostic pour expliquer une maladie génétique"}, {"name": "Analyste en biologie moléculaire", "url1": "https://www.youtube.com/watch?v=I1A9woKs6fo", "url2": null, "desc": "Réalise des analyses génétiques sur des organismes végétaux ou animaux."}]}, {"name": "Biologie végétale", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licence bio, prépa BCPST, écoles agro", "hasVideos": true, "jobs": [{"name": "Ethnobotaniste", "url1": "https://www.youtube.com/watch?v=hj6Uc78PUeM", "url2": null, "desc": "Étudie les relations entre les plantes utiles et les populations humaines"}]}, {"name": "Biotechnologies", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Prépa BCPST, licences bio, écoles d'ingénieurs", "hasVideos": true, "jobs": [{"name": "Ingénieur technico-commercial", "url1": "https://www.youtube.com/watch?v=r39tvTwtULE", "url2": null, "desc": "Définit les besoins des clients, gère le processus de vente, puis accompagne l'installation des projets et la formation aux produits"}, {"name": "Responsable contrôle qualité en impression biologique", "url1": "https://www.youtube.com/watch?v=5rIjXfcgeMQ", "url2": null, "desc": "Supervise la qualité des bioimprimantes et des tissus biologiques produits."}, {"name": "Ingénieur responsable production tissus vivants", "url1": "https://www.youtube.com/watch?v=5rIjXfcgeMQ", "url2": null, "desc": "Pilote la fabrication de tissus cellulaires vivants pour des applications médicales."}, {"name": "Spécialiste en bioimpression", "url1": "https://www.youtube.com/watch?v=tAqCBfoH1MA", "url2": null, "desc": "Utilise des imprimantes 3D biologiques pour créer des structures cellulaires."}, {"name": "Ingénieur biomédical", "url1": "https://www.youtube.com/watch?v=2-H3KgBDURA", "url2": null, "desc": "Conçoit des dispositifs médicaux en combinant ingénierie et biologie."}, {"name": "Technicien biomédical", "url1": "https://www.youtube.com/watch?v=FXtRUZyxDjA", "url2": null, "desc": "Installe, entretient et répare les équipements médicaux dans les établissements de santé."}]}, {"name": "Commerce", "specs": "Voie école de commerce : libre choix (SVT conseillé) • Voie université : SVT + SES ou SVT + Maths", "options": "DGEMC conseillée (option Tle)", "debouches": "Écoles de commerce post-bac ou prépa ECG ; secteurs pharma, biotech, agro", "hasVideos": true, "jobs": [{"name": "Acheteur hospitalier", "url1": "https://www.youtube.com/watch?v=1444FpEZCLE", "url2": null, "desc": "Négocie les contrats d'achat de matériel médical et médicaments en fonction des besoin d'un hôpital."}, {"name": "Chef de produit cosmétique et détergence", "url1": "https://www.youtube.com/watch?v=CPSFay5S5b0", "url2": null, "desc": "Gère le développement et le lancement de nouveaux produits cosmétiques sur le marché."}]}, {"name": "Cosmétique & Dermatologie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences chimie-biologie, écoles de cosmétique", "hasVideos": true, "jobs": [{"name": "Contrôleur qualité", "url1": "https://www.youtube.com/watch?v=OgOFq-iRuUY", "url2": null, "desc": "Vérifie la conformité des produits cosmétiques aux normes de qualité et sécurité."}, {"name": "Agent de pesée", "url1": "https://www.youtube.com/watch?v=65CV9EYU3ug", "url2": null, "desc": "Mesure et prépare les matières premières entrant dans la fabrication cosmétique."}, {"name": "Chef de produit cosmétique et détergence", "url1": "https://www.youtube.com/watch?v=CPSFay5S5b0", "url2": null, "desc": "Gère le développement et le lancement de nouveaux produits cosmétiques sur le marché."}, {"name": "Responsable développement packaging", "url1": "https://www.youtube.com/watch?v=h4i9w3JDUy4", "url2": null, "desc": "Conçoit les emballages des produits cosmétiques en intégrant les contraintes techniques."}, {"name": "Chargée de projet", "url1": "https://www.youtube.com/watch?v=eMLNE705R2A", "url2": null, "desc": "Coordonne les étapes du développement d'un produit cosmétique du lab au lancement."}]}, {"name": "Data science", "specs": "SVT + Maths ou SVT + NSI", "options": "Maths conservée en Tle conseillée — sinon Maths compl. (option)", "debouches": "Licences info/maths/bio, masters data (SVT = contexte biologique)", "hasVideos": true, "jobs": [{"name": "Ingénieur data Agro", "url1": "https://www.youtube.com/watch?v=-YrajFuEJxM", "url2": null, "desc": "Analyse les données agricoles pour optimiser les rendements et pratiques culturales."}, {"name": "Analyste des données INSEP", "url1": "https://www.youtube.com/watch?v=FPN1Afjo0Ss", "url2": null, "desc": "Exploite les données de performance des athlètes pour optimiser l'entraînement."}, {"name": "Analyste de données Cyclisme", "url1": "https://www.youtube.com/watch?v=x4sDjxuu51Y", "url2": null, "desc": "Traite les données des cyclistes professionnels pour améliorer leurs performances."}, {"name": "Data manager en santé", "url1": "https://www.youtube.com/watch?v=0cTPwzAIDtY", "url2": null, "desc": "Gère et sécurise les bases de données médicales dans les établissements de santé."}, {"name": "Biostatisticienne", "url1": "https://www.youtube.com/watch?v=GvfANw1AOaw", "url2": "https://www.youtube.com/watch?v=79Wtw8vBQnI", "desc": "Applique des méthodes statistiques avancées à des données biologiques ou médicales."}, {"name": "Ingénieurs bioanalystes", "url1": "https://www.youtube.com/watch?v=MonOkK3bP5Y", "url2": null, "desc": "Traite et analyse les données biologiques brutes, notamment issues du séquençage du génome, en utilisant l'informatique et les mathématiques pour leur donner un sens biologique"}, {"name": "Attaché de recherche clinique", "url1": "https://www.youtube.com/watch?v=IsFjPsR7Sa8", "url2": null, "desc": "Interface essentielle entre le promoteur d'une étude, les médecins et les patients"}]}, {"name": "Droit", "specs": "Voie Sciences Po/IEP : libre choix • Voie faculté : SVT + HGGSP ou SVT + SES", "options": "DGEMC fortement conseillée (option Tle)", "debouches": "Fac de droit, IEP ; SVT pour le droit de l'environnement", "hasVideos": true, "jobs": [{"name": "Juriste en droit de l'environnement", "url1": "https://www.youtube.com/watch?v=sG7F5eBcaVs", "url2": null, "desc": "Conseille sur les questions juridiques liées à la protection de l'environnement."}, {"name": "Avocate en droit de l'environnement", "url1": "https://www.youtube.com/watch?v=na8NezT2n1U", "url2": null, "desc": "Plaide pour faire respecter la législation environnementale."}, {"name": "Inspecteur de l'environnement", "url1": "https://www.youtube.com/watch?v=sH9mP2jmG_w", "url2": null, "desc": "Contrôle le respect des réglementations environnementales."}, {"name": "Spécialiste aux affaires réglementaires en pharmacologie", "url1": "https://www.youtube.com/watch?v=KK5FxyFAleg", "url2": null, "desc": "Assure la conformité réglementaire des médicaments lors de leur développement."}]}, {"name": "Epidémiologie", "specs": "SVT + Maths ou SVT + Physique-Chimie", "options": "Maths conservée en Tle conseillée — sinon Maths compl. (option)", "debouches": "Licences santé/bio, PASS, master épidémiologie", "hasVideos": true, "jobs": [{"name": "Epidémiologiste", "url1": "https://www.youtube.com/watch?v=sag-knWne6o", "url2": "https://www.youtube.com/watch?v=BJEGkElc2Os", "desc": "Étudie la distribution et les causes des maladies dans les populations."}, {"name": "Epidémiologiste moléculaire", "url1": "https://www.youtube.com/watch?v=9yTe07qiRUI", "url2": null, "desc": "Trace l'origine et la transmission des maladies infectieuses par analyses génétiques."}, {"name": "Epidémiologiste en santé environnementale", "url1": "https://www.youtube.com/watch?v=oOdrNcPoC1Q", "url2": null, "desc": "Analyse les liens entre facteurs environnementaux et santé des populations."}]}, {"name": "Ethologie et comportement animal", "specs": "SVT + Physique-Chimie ou SVT + HGGSP", "options": "", "debouches": "Licence bio, master éthologie", "hasVideos": true, "jobs": [{"name": "Primatologue", "url1": "https://www.youtube.com/watch?v=r9hk8iX5YO0", "url2": null, "desc": "Étudie le comportement et la cognition des primates dans leur milieu naturel."}, {"name": "Ethologue", "url1": "https://www.youtube.com/watch?v=LNEMLzlOfe8", "url2": null, "desc": "Observe et analyse les comportements des animaux pour comprendre leurs interactions."}]}, {"name": "Exobiologie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths conservée en Tle conseillée — sinon Maths compl. (option)", "debouches": "Prépa BCPST ou MPSI, licences physique/bio", "hasVideos": true, "jobs": [{"name": "Chercheur en exobiologie", "url1": "https://www.youtube.com/watch?v=X7Y2qPQvgUo", "url2": null, "desc": "Recherche les conditions d'apparition de la vie dans l'univers."}]}, {"name": "Finance", "specs": "Voie Sciences Po/école de commerce : libre choix • Voie université : SVT + Maths ou SVT + SES", "options": "Maths compl. utile si Maths non conservée · DGEMC conseillée", "debouches": "Écoles de commerce, IEP ; SVT pour la finance verte / ESG", "hasVideos": true, "jobs": [{"name": "Être experte investissement responsable", "url1": "https://www.youtube.com/watch?v=fL2ibAlnP-0", "url2": null, "desc": "Sélectionne des investissements en intégrant des critères environnementaux et sociaux (ESG)."}]}, {"name": "Forêts", "specs": "SVT + Physique-Chimie ou SVT + HGGSP", "options": "", "debouches": "Écoles forestières, licences écologie", "hasVideos": true, "jobs": [{"name": "Ingénieur forestier", "url1": "https://www.youtube.com/watch?v=0DfTONqQP0Y", "url2": "https://www.youtube.com/watch?v=UDVIl5orU7E", "desc": "Gère durablement les massifs forestiers en planifiant coupes et reboisements / évaluations environnementales des projets"}, {"name": "Responsable unité territoriale", "url1": "https://www.youtube.com/watch?v=jOL7meF1COw", "url2": null, "desc": "Coordonne la gestion forestière sur un territoire pour l'ONF."}, {"name": "Chargé de mission forêt & biodiversité", "url1": "https://www.youtube.com/watch?v=QdBJ3o3SMS0", "url2": null, "desc": "Développe des actions de préservation de la biodiversité forestière."}]}, {"name": "Génétique", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences bio, PASS, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur en génomique végétale", "url1": "https://www.youtube.com/watch?v=1FWZIn29XQ0", "url2": null, "desc": "Analyse le génome des plantes pour identifier des gènes d'intérêt agronomique."}, {"name": "Généticien des populations", "url1": "https://www.youtube.com/watch?v=xLb4B5UN6EE", "url2": null, "desc": "Étudie la diversité génétique au sein des populations animales ou végétales."}, {"name": "Conseiller en génétique", "url1": "https://www.youtube.com/watch?v=e2XIZZI9ojM", "url2": null, "desc": "Accompagne les patients dans la compréhension des maladies génétiques héréditaires."}, {"name": "Généticien clinicien", "url1": "https://www.youtube.com/watch?v=non8TkaH8SE", "url2": null, "desc": "Médecin spécialiste qui diagnostique les maladies d'origine génétique."}, {"name": "Cytogénéticien", "url1": "https://www.youtube.com/watch?v=uWAyAU-GmlA", "url2": null, "desc": "Analyse les chromosomes des cellules pour détecter des anomalies."}, {"name": "Ingénieur en cytogénétique", "url1": "https://www.youtube.com/watch?v=OiueMCEC9Qk", "url2": null, "desc": "Réalise des analyses chromosomiques en laboratoire hospitalier ou de recherche."}, {"name": "Technicien de laboratoire en génétique", "url1": "https://www.youtube.com/watch?v=S-9q-h7SC3U", "url2": null, "desc": "Prépare et analyse les échantillons biologiques pour les tests génétiques."}, {"name": "Bioinformaticien en génétique moléculaire", "url1": "https://www.youtube.com/watch?v=zkaUzJEqC6c", "url2": null, "desc": "Traite et interprète les données génomiques pour comprendre l'hérédité."}, {"name": "Biologiste en génétique moléculaire", "url1": "https://www.youtube.com/watch?v=-2YrpCsEoK4", "url2": null, "desc": "Analyse l'ADN et l'ARN pour diagnostiquer des maladies ou mener des recherches."}, {"name": "Fœtopathologiste", "url1": "https://www.youtube.com/watch?v=MpTdcFS9IC8", "url2": null, "desc": "Médecin spécialisé qui réalise des autopsies sur les fœtus ou les nouveau-nés décédés"}, {"name": "Chercheur en génétique en milieu hospitalier", "url1": "https://www.youtube.com/watch?v=WHrto2rYL-4", "url2": null, "desc": "Mène des recherches sur les bases génétiques des maladies en contexte hospitalier."}, {"name": "Paléogénéticien", "url1": "https://www.youtube.com/watch?v=I4r9FUoLp4c", "url2": null, "desc": "Extrait et analyse l'ADN ancien d'ossements pour reconstituer l'histoire évolutive."}]}, {"name": "Géosciences", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Licences STU, prépa BCPST", "hasVideos": true, "jobs": [{"name": "Ingénieur·e géologue", "url1": "https://www.youtube.com/watch?v=mHoT5vcbFgk", "url2": null, "desc": "Étudie les roches et sols pour des projets d'exploration minière ou de génie civil."}, {"name": "Géophysicien", "url1": "https://www.youtube.com/watch?v=ACbkEBlXTH8", "url2": null, "desc": "Utilise des méthodes de mesures physiques pour analyser les structures et les propriétés du sous-sol afin d'en comprendre la composition et la géométrie"}, {"name": "Climatologue", "url1": "https://www.youtube.com/watch?v=O2XxW6L2jw0", "url2": "https://www.youtube.com/watch?v=0I1-3VVNURQ", "desc": "Étudie les variations du climat et modélise les évolutions futures."}, {"name": "Litholamelleur", "url1": "https://www.youtube.com/watch?v=8iFQXTZl11E", "url2": null, "desc": "Prépare des lames minces de roches pour l'analyse microscopique en géologie."}]}, {"name": "Géotechnique", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths conservée en Tle conseillée — sinon Maths compl. (option)", "debouches": "Écoles d'ingénieurs, licence STU", "hasVideos": true, "jobs": [{"name": "Géotechnicien", "url1": "https://www.youtube.com/watch?v=XWrRMW_HvZE", "url2": null, "desc": "Analyse les caractéristiques mécaniques des sols pour des projets de construction."}, {"name": "Technicienne Laboratoire", "url1": "https://www.youtube.com/watch?v=gvRPaTA8pxc", "url2": null, "desc": "Réalise des essais mécaniques sur des échantillons de sol en laboratoire."}, {"name": "Chef sondeur", "url1": "https://www.youtube.com/watch?v=6e4zn1fZn1s", "url2": null, "desc": "Dirige les opérations de forage géotechnique pour prélever des carottes de sol."}, {"name": "Sondeur géotechnique", "url1": "https://www.youtube.com/watch?v=uGB-u06MPZU", "url2": null, "desc": "Effectue des prélèvements de terrain pour analyser les sols."}, {"name": "Ingénieur·e géotechnique", "url1": "https://www.youtube.com/watch?v=F_vypqatduU", "url2": "https://www.youtube.com/watch?v=HLzSb86pPEU", "desc": "Conçoit les fondations des ouvrages en analysant les contraintes du sol."}, {"name": "Chargé d'affaires géotechnique", "url1": "https://www.youtube.com/watch?v=zwyQpQocT40", "url2": null, "desc": "Gère des projets d'études de sol de la prospection aux rapports."}, {"name": "Géomètre", "url1": "https://www.youtube.com/watch?v=_VRHRklcwD4", "url2": null, "desc": "Mesure et délimite les terrains pour des projets d'aménagement ou de construction."}, {"name": "Les métiers de la géotechnique", "url1": "https://www.youtube.com/watch?v=2_YTnsOnFQ0", "url2": null, "desc": "Présentation des différents métiers du secteur de l'étude des sols."}]}, {"name": "Hydrogéologie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Licence STU, masters hydrogéologie", "hasVideos": true, "jobs": [{"name": "Hydrogéologue", "url1": "https://www.youtube.com/watch?v=FmMAzl6Ty70", "url2": null, "desc": "Gère l'ensemble du cycle de l'eau potable, de l'optimisation des ressources naturelles (souterraines et de surface) jusqu'à la maîtrise d'ouvrage des installations de production et de distribution"}, {"name": "Technicien·ne hydrogéologue", "url1": "https://www.youtube.com/watch?v=d5VL5D9X0sU", "url2": null, "desc": "Réalise des mesures de terrain pour caractériser les nappes phréatiques."}, {"name": "Ingénieur hydrogéologue", "url1": "https://www.youtube.com/watch?v=Vorpjt0rBR8", "url2": null, "desc": "Etudie le comportement de l'eau souterraine pour accompagner les projets d'aménagement et de construction tout en préservant les équilibres naturels"}, {"name": "Chargée de missions scientifique biodiversité", "url1": "https://www.youtube.com/watch?v=oNF4tRAJetw", "url2": null, "desc": "Étudie la biodiversité des milieux aquatiques et propose des mesures de préservation."}]}, {"name": "Météorologie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths conservée en Tle conseillée — sinon Maths compl. (option)", "debouches": "Prépa MPSI/PCSI, école de Météo-France", "hasVideos": true, "jobs": [{"name": "Prévisionniste à Météo France", "url1": "https://www.youtube.com/watch?v=JxR23zXP6hY", "url2": null, "desc": "Analyse les données atmosphériques pour établir des prévisions météorologiques."}, {"name": "Prévisionniste aéronautique", "url1": "https://www.youtube.com/watch?v=fQZ4IYYXRbY", "url2": null, "desc": "Fournit des prévisions météorologiques spécialisées pour la sécurité du trafic aérien."}, {"name": "Prévisionniste avalanches", "url1": "https://www.youtube.com/watch?v=_EZFzGQRmSQ", "url2": null, "desc": "Évalue les risques d'avalanche en montagne et diffuse des bulletins de sécurité."}, {"name": "Météorologue océanographe dans l'armée", "url1": "https://www.youtube.com/watch?v=foe16S5Bh5U", "url2": null, "desc": "Réalise des analyses météo et océanographiques pour les opérations militaires."}, {"name": "Ingénieur météo", "url1": "https://www.youtube.com/watch?v=rssKZc2CBws", "url2": null, "desc": "Développe des modèles pour améliorer la précision des prévisions météorologiques."}]}, {"name": "Missions scientifiques", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Formations scientifiques variées (TAAF, instituts polaires)", "hasVideos": true, "jobs": [{"name": "Les métiers du Marion Dufresne", "url1": "https://www.youtube.com/watch?v=wKr70yrRTU8", "url2": null, "desc": "Présentation des métiers à bord du navire océanographique Marion Dufresne."}, {"name": "Les scientifiques du Marion Dufresne", "url1": "https://www.youtube.com/watch?v=OvRE0mLDOko", "url2": null, "desc": "Témoignages de chercheurs participant aux missions scientifiques polaires et océaniques."}]}, {"name": "Neurosciences", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences bio, médecine (PASS/L.AS)", "hasVideos": true, "jobs": [{"name": "Chercheur en neurobiologie", "url1": "https://www.youtube.com/watch?v=8wfaiuf87OQ", "url2": null, "desc": "Étudie le fonctionnement du cerveau à l'échelle cellulaire et moléculaire."}, {"name": "Médecin-chercheur en neurosciences", "url1": "https://www.youtube.com/watch?v=NSGMmQZ2wq8", "url2": null, "desc": "Combine activité clinique et recherche sur les maladies neurologiques."}, {"name": "Neuropsychologue", "url1": "https://www.youtube.com/watch?v=MikO5HlkUSA", "url2": null, "desc": "Évalue les fonctions cognitives et accompagne les patients ayant des lésions cérébrales."}]}, {"name": "Océanographie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Licence STU, prépa BCPST, masters", "hasVideos": true, "jobs": [{"name": "Chercheur en océanographie / Grands pélagiques", "url1": "https://www.youtube.com/watch?v=wxImQEszv1Y", "url2": null, "desc": "Étudie les grands pélagiques au sein des écosystèmes marins."}, {"name": "Chercheur en écotoxicologie marine", "url1": "https://www.youtube.com/watch?v=EwtR6rMZDrE", "url2": null, "desc": "Analyse l'impact des polluants sur les écosystèmes marins."}, {"name": "Chercheur en écologie marine", "url1": "https://www.youtube.com/watch?v=efa9HX_gJQA", "url2": null, "desc": "Étudie les écosystèmes marins"}, {"name": "Océanographe", "url1": "https://www.youtube.com/watch?v=-dWtCoZG1tw", "url2": null, "desc": "Etudie les océans ou les systèmes de type marin / grands lacs"}, {"name": "Ingénieur océanographe", "url1": "https://www.youtube.com/watch?v=jadSXkwzXr0", "url2": null, "desc": "Développe des instruments pour l'acquisition de données en milieu marin."}, {"name": "Plongeur biologiste marin", "url1": "https://www.youtube.com/watch?v=FBQpVTADWOQ", "url2": null, "desc": "Réalise des observations et prélèvements biologiques sous-marins."}, {"name": "Biologiste marin responsable aquariologie", "url1": "https://www.youtube.com/watch?v=QuTb8IK0Ee0", "url2": null, "desc": "Gère des collections d'animaux marins vivants dans un aquarium ou centre de recherche."}, {"name": "Biologiste marin à Tahiti", "url1": "https://www.youtube.com/watch?v=c-71oOln4qo", "url2": null, "desc": "Étudie la biodiversité des récifs coralliens et les écosystèmes tropicaux."}, {"name": "Agent de la réserve marine", "url1": "https://www.youtube.com/watch?v=qA8bCdY2-HQ", "url2": null, "desc": "Surveille et protège une aire marine protégée."}, {"name": "Vétérinaire marin", "url1": "https://www.youtube.com/watch?v=7KU3FCwe_Vk", "url2": null, "desc": "Assure le suivi sanitaire des mammifères marins en captivité ou lors d'échouages."}, {"name": "Bioacousticienne marine", "url1": "https://www.youtube.com/watch?v=SqyzwNB2ywY", "url2": null, "desc": "Étudie les sons produits par les animaux marins pour comprendre leurs comportements."}, {"name": "Ingénieure hydrographe", "url1": "https://www.youtube.com/watch?v=KLVNosOwq5s", "url2": null, "desc": "Etudie les marées, les courants, les vagues et la bathymétrie pour sécuriser la navigation."}, {"name": "Bioinformaticienne marine", "url1": "https://www.youtube.com/watch?v=-_s0rvHvjtA", "url2": null, "desc": "Analyse les données génomiques des organismes marins."}, {"name": "Ingénieur de recherche en biologie marine", "url1": "https://www.youtube.com/watch?v=Z0w7P4P768M", "url2": null, "desc": "Conçoit des expériences sur les organismes marins en laboratoire ou en mer."}, {"name": "Ingénieur halieutique", "url1": "https://www.youtube.com/watch?v=2f_QCWBk8Vs", "url2": null, "desc": "Étudie et gère les ressources de pêche pour une exploitation durable."}, {"name": "Contrôleur de pêche", "url1": "https://www.youtube.com/watch?v=NNrkHXV_OZM", "url2": null, "desc": "Vérifie le respect des réglementations de pêche en mer et dans les ports."}, {"name": "Chargée de mission pêche maritime - OFB", "url1": "https://www.youtube.com/watch?v=cPtyOlvvKXA", "url2": null, "desc": "Surveille les écosystèmes halieutiques pour une pêche respectueuse de la biodiversité."}, {"name": "Chargée d'études scientifiques - Kelonia", "url1": "https://www.youtube.com/watch?v=K3n9iEInEJI", "url2": null, "desc": "Étudie les tortues marines et participe à leur conservation."}, {"name": "Chef de projet en biodiversité marine", "url1": "https://www.youtube.com/watch?v=CkJ3eVtrlos", "url2": null, "desc": "Coordonne des programmes d'étude et de protection des espèces marines."}, {"name": "Chercheuse en biogéochimie marine", "url1": "https://www.youtube.com/watch?v=4HLrrGaiHRE", "url2": null, "desc": "Analyse les cycles des éléments chimiques dans l'océan."}]}, {"name": "Optique & Vision", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Licences bio (orthoptie), physique, PASS", "hasVideos": true, "jobs": [{"name": "Ophtalmologiste", "url1": "https://www.youtube.com/watch?v=ShHbQyeCExs", "url2": null, "desc": "Médecin spécialiste qui diagnostique et traite les maladies de l'œil."}, {"name": "Orthoptiste", "url1": "https://www.youtube.com/watch?v=tqojl0sdGKQ", "url2": null, "desc": "Rééduque les troubles de la vision et de la motricité oculaire."}, {"name": "Opticien-Lunetier", "url1": "https://www.youtube.com/watch?v=89RmRhwTDro", "url2": null, "desc": "Réalise et adapte les équipements optiques correcteurs sur prescription médicale."}, {"name": "Optométriste", "url1": "https://www.youtube.com/watch?v=g4Pvopgkz5w", "url2": null, "desc": "Réalise des examens visuels complets et adapte les corrections optiques."}, {"name": "Ingénieur R&D en photonique", "url1": "https://www.youtube.com/watch?v=ZXcGFumUeV4", "url2": null, "desc": "Développe des technologies optiques pour des applications médicales ou industrielles."}]}, {"name": "Paléontologie", "specs": "SVT + Physique-Chimie ou SVT + HGGSP", "options": "", "debouches": "Licence SVT puis master paléontologie", "hasVideos": true, "jobs": [{"name": "Paléontologue", "url1": "https://www.youtube.com/watch?v=iPZeIt2HHoU", "url2": null, "desc": "Étudie les fossiles pour reconstituer l'histoire de la vie sur Terre."}, {"name": "Technicien préparateur en paléontologie", "url1": "https://www.youtube.com/watch?v=SiQXCYMtGZY", "url2": null, "desc": "Dégage et prépare les fossiles découverts sur les sites de fouilles."}, {"name": "Conservateur en paléontologie", "url1": "https://www.youtube.com/watch?v=CKDB5E3NbvM", "url2": null, "desc": "Gère et valorise les collections de fossiles d'un muséum."}, {"name": "Restauratrice de fossiles", "url1": "https://www.youtube.com/watch?v=1Cu44OMWlnk", "url2": null, "desc": "Nettoie, reconstitue et stabilise les fossiles pour exposition ou étude."}, {"name": "Préparateur-mouleur", "url1": "https://www.youtube.com/watch?v=qK9I_DXL9XI", "url2": null, "desc": "Réalise des moulages de fossiles pour des musées ou centres de recherche."}]}, {"name": "Pharmacie", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "PASS ou L.AS (filière pharmacie)", "hasVideos": true, "jobs": [{"name": "Directeur de recherche dans un laboratoire pharmaceutique", "url1": "https://www.youtube.com/watch?v=Bvh4gY4MDHg", "url2": null, "desc": "Dirige les programmes de recherche pour développer de nouveaux médicaments."}, {"name": "Responsable qualité / Directeur dans un laboratoire pharmaceutique", "url1": "https://www.youtube.com/watch?v=CWRXrydDeOc", "url2": null, "desc": "Garantit la conformité des médicaments aux normes de qualité et sécurité."}, {"name": "Chef·fe de projet en pharmacologie", "url1": "https://www.youtube.com/watch?v=S0o4yMm_Zmg", "url2": null, "desc": "Coordonne les études précliniques et cliniques sur les médicaments."}, {"name": "Microbiologiste", "url1": "https://www.youtube.com/watch?v=tkKmqog5sJc", "url2": null, "desc": "Étudie les micro-organismes dans un contexte de recherche ou industriel."}, {"name": "Pharmacien hospitalier", "url1": "https://www.youtube.com/watch?v=lSCX-3OiQW4", "url2": null, "desc": "Gère les médicaments et dispositifs médicaux stériles dans un hôpital."}, {"name": "Pharmacien d'officine", "url1": "https://www.youtube.com/watch?v=VdZ1Dr802vo", "url2": null, "desc": "Délivre les médicaments et conseille les patients en pharmacie de ville."}, {"name": "Chercheuse/Assistante hospitalo-universitaire en pharmacie", "url1": "https://www.youtube.com/watch?v=lSCX-3OiQW4", "url2": null, "desc": "Combine enseignement, recherche et pratique clinique pharmaceutique."}, {"name": "Spécialiste aux affaires réglementaires en pharmacologie", "url1": "https://www.youtube.com/watch?v=KK5FxyFAleg", "url2": null, "desc": "Assure la conformité réglementaire des médicaments lors de leur développement."}, {"name": "Biostatisticienne", "url1": "https://www.youtube.com/watch?v=GvfANw1AOaw", "url2": "https://www.youtube.com/watch?v=79Wtw8vBQnI", "desc": "Applique des méthodes statistiques avancées à des données biologiques ou médicales."}, {"name": "Biologiste médical", "url1": "https://www.youtube.com/watch?v=ksueXhuAqIg", "url2": null, "desc": "Dirige un laboratoire d'analyses médicales et interprète les résultats."}, {"name": "Technicien de laboratoire", "url1": "https://www.youtube.com/watch?v=okbmBWNiul4", "url2": null, "desc": "Réalise des analyses biologiques sur les prélèvements des patients."}, {"name": "Associé·e de recherche clinique", "url1": "https://www.youtube.com/watch?v=kR4UpcLUCDk", "url2": null, "desc": "Participe à la conduite et au suivi des essais cliniques."}]}, {"name": "Physiologie humaine", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences bio, médecine (PASS)", "hasVideos": true, "jobs": [{"name": "Directrice de Recherche au laboratoire Biomécanique et Bioingénierie", "url1": "https://www.youtube.com/watch?v=TtOg_lGn15U", "url2": null, "desc": "Dirige des recherches sur la mécanique du corps humain pour des applications médicales."}, {"name": "Enseignant chercheur en sciences du sport", "url1": "https://www.youtube.com/watch?v=rSKfN-FTyK0", "url2": null, "desc": "Combine enseignement universitaire et recherche sur la physiologie de l'exercice."}, {"name": "Chercheuse en physiologie - cancer du sein", "url1": "https://www.youtube.com/watch?v=tdIBUHjsZQQ", "url2": null, "desc": "Étudie les mécanismes physiologiques impliqués dans le cancer du sein."}]}, {"name": "Police scientifique", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licence bio ou chimie, masters criminalistique", "hasVideos": true, "jobs": [{"name": "Ingénieur de la police scientifique", "url1": "https://www.youtube.com/watch?v=y44u93xjkgA", "url2": null, "desc": "Analyse les indices de scènes de crime à l'aide de techniques scientifiques."}, {"name": "Technicienne de la police scientifique", "url1": "https://www.youtube.com/watch?v=9AN5SLc0Uyw", "url2": null, "desc": "Prélève et analyse les traces biologiques et chimiques sur les scènes de crime."}, {"name": "Entomologiste légal à la gendarmerie nationale", "url1": "https://www.youtube.com/watch?v=9hVJXEAV31c", "url2": null, "desc": "Utilise l'étude des insectes pour déterminer la date de décès dans les enquêtes."}, {"name": "Médecin légiste", "url1": "https://www.youtube.com/watch?v=gZYhzGK4wa0", "url2": null, "desc": "Réalise des autopsies et expertises médico-légales pour élucider les causes de décès."}, {"name": "Référent police contrôle environnement -OFB", "url1": "https://www.youtube.com/watch?v=jLb3lRa3osA", "url2": null, "desc": "Coordonne les enquêtes sur les infractions environnementales."}, {"name": "Inspecteur de l'environnement - OFB", "url1": "https://www.youtube.com/watch?v=KsSOB2ZwIlI", "url2": null, "desc": "Surveille et sanctionne les atteintes aux milieux naturels et à la faune sauvage."}]}, {"name": "Psychologie/Psychiatrie", "specs": "SVT + Physique-Chimie (psychiatrie) ou SVT + SES (psychologie)", "options": "", "debouches": "PASS/médecine (psychiatrie) ; licence de psychologie", "hasVideos": true, "jobs": [{"name": "Psychomotricien", "url1": "https://www.youtube.com/watch?v=khpSKAprYHo", "url2": null, "desc": "Rééduque les troubles du mouvement et de l'expression corporelle."}, {"name": "Psychiatre", "url1": "https://www.youtube.com/watch?v=jpluUP3QhMc", "url2": null, "desc": "Médecin spécialiste qui diagnostique et traite les maladies mentales."}, {"name": "Préparateur mental (sport professionnel)", "url1": "https://www.youtube.com/watch?v=6doNtSDKKyg", "url2": null, "desc": "Accompagne les sportifs de haut niveau dans la gestion du stress et des performances mentales."}, {"name": "Neuropsychologue", "url1": "https://www.youtube.com/watch?v=MikO5HlkUSA", "url2": null, "desc": "Évalue les fonctions cognitives et accompagne les patients ayant des lésions cérébrales."}, {"name": "Psychologue", "url1": "https://www.youtube.com/watch?v=ZRYAu4l6S6A", "url2": null, "desc": "Évalue et accompagne les personnes en souffrance psychologique par des entretiens et thérapies."}, {"name": "Ethologue", "url1": "https://www.youtube.com/watch?v=LNEMLzlOfe8", "url2": null, "desc": "Observe et analyse les comportements des animaux pour comprendre leurs interactions."}]}, {"name": "Responsabilité sociétale des entreprises", "specs": "Voie Sciences Po/IEP : libre choix • Voie université : SVT + SES ou SVT + HGGSP", "options": "DGEMC conseillée (option Tle)", "debouches": "IEP, écoles ; SVT pour les enjeux environnementaux", "hasVideos": true, "jobs": [{"name": "Responsable RSE à la Banque de France", "url1": "https://www.youtube.com/watch?v=rza9DeONVG8", "url2": null, "desc": "Pilote la politique de responsabilité sociale et environnementale d'une grande institution."}, {"name": "Responsable Hygiène Santé Environnement", "url1": "https://www.youtube.com/watch?v=MzAkBY4jZ2k", "url2": null, "desc": "Gère les risques professionnels et environnementaux dans une entreprise industrielle."}, {"name": "Coordinatrice RSE", "url1": "https://www.youtube.com/watch?v=3jKzryob6h8", "url2": null, "desc": "Met en œuvre et suit les engagements environnementaux et sociaux d'une organisation."}]}, {"name": "Santé - Professions médicales et paramédicales", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "PASS, L.AS, écoles paramédicales", "hasVideos": true, "jobs": [{"name": "Cadre supérieur de santé à l'hôpital", "url1": "https://www.youtube.com/watch?v=vpkEWnwfKWs", "url2": null, "desc": "Manage les équipes de soins et coordonne l'organisation d'un service hospitalier."}, {"name": "Infirmiers anesthésistes", "url1": "https://www.youtube.com/watch?v=AwIxKx2YCFY", "url2": "https://www.youtube.com/watch?v=86EY_ctWCJ4", "desc": "Assiste le médecin anesthésiste et gère la sédation des patients en salle d'opération."}, {"name": "Infirmier de Bloc Opératoire (IBODE)", "url1": "https://www.youtube.com/watch?v=zsFJ5gTfQ70", "url2": null, "desc": "Assiste les chirurgiens pendant les opérations en gérant l'instrumentation stérile."}, {"name": "Infirmier·ère hygiéniste à l'hôpital", "url1": "https://www.youtube.com/watch?v=i2RxKoaeeg0", "url2": null, "desc": "Prévient les infections nosocomiales en contrôlant les pratiques d'hygiène."}, {"name": "Infirmier libéral", "url1": "https://www.youtube.com/watch?v=rnIYuqZvFWI", "url2": null, "desc": "Prodigue des soins à domicile sur prescription médicale en toute autonomie."}, {"name": "Infirmier·ère coordinateur·rice en HAD", "url1": "https://www.youtube.com/watch?v=uCjSa6VzREo", "url2": null, "desc": "Coordonne les soins des patients hospitalisés à domicile."}, {"name": "Infirmier·ère de santé au travail", "url1": "https://www.youtube.com/watch?v=9tyfYdZXCa0", "url2": null, "desc": "Surveille la santé des salariés et prévient les risques professionnels."}, {"name": "Infirmier·ère en pratique avancée (IPA)", "url1": "https://www.youtube.com/watch?v=dIyS19FMkGM", "url2": null, "desc": "Assure des consultations et prescriptions dans un domaine spécialisé avec grande autonomie."}, {"name": "Médecin généraliste", "url1": "https://www.youtube.com/watch?v=gwuq6rY3Fig", "url2": null, "desc": "Assure le suivi global de la santé des patients et les oriente vers des spécialistes."}, {"name": "Médecin anesthésiste - réanimateur", "url1": "https://www.youtube.com/watch?v=JcSVd9HKM4A", "url2": null, "desc": "Gère l'anesthésie lors des opérations et prend en charge les patients en réanimation."}, {"name": "Médecin endocrinologue", "url1": "https://www.youtube.com/watch?v=UzbD1q3Xq7I", "url2": null, "desc": "Diagnostique et traite les maladies des glandes endocrines (diabète, thyroïde)."}, {"name": "Médecin oto-rhino-laryngologiste (ORL)", "url1": "https://www.youtube.com/watch?v=-821mQFAGCs", "url2": null, "desc": "Soigne les affections de l'oreille, du nez et de la gorge."}, {"name": "Médecin gynécologue-obstétricien", "url1": "https://www.youtube.com/watch?v=RxhcvsZ4t9U", "url2": null, "desc": "Suit la santé de la femme et accompagne les grossesses jusqu'à l'accouchement."}, {"name": "Médecin pédiatre", "url1": "https://www.youtube.com/watch?v=Nd_J1HlfoD8", "url2": null, "desc": "Assure le suivi médical des nourrissons, enfants et adolescents."}, {"name": "Attaché de recherche clinique", "url1": "https://www.youtube.com/watch?v=IsFjPsR7Sa8", "url2": null, "desc": "Coordonne et surveille les essais cliniques pour garantir leur qualité."}, {"name": "Coordinatrice en recherche clinique", "url1": "https://www.youtube.com/watch?v=HNdqZJC8LaY", "url2": null, "desc": "Organise et coordonne les essais cliniques dans les hôpitaux universitaires."}, {"name": "Psychiatre hospitalier", "url1": "https://www.youtube.com/watch?v=jpluUP3QhMc", "url2": "https://www.youtube.com/watch?v=rEuTB3I2AOw", "desc": "Diagnostique et traite les troubles psychiatriques sévères en milieu hospitalier."}, {"name": "Data manager en santé", "url1": "https://www.youtube.com/watch?v=0cTPwzAIDtY", "url2": null, "desc": "Gère et sécurise les bases de données médicales dans les établissements de santé."}, {"name": "Médecin légiste", "url1": "https://www.youtube.com/watch?v=gZYhzGK4wa0", "url2": null, "desc": "Réalise des autopsies et expertises médico-légales pour élucider les causes de décès."}, {"name": "Manipulateur radio en imagerie médicale", "url1": "https://www.youtube.com/watch?v=4DMKJEejbZY", "url2": "https://www.youtube.com/watch?v=JU5NPoYQaUk", "desc": "Réalise des examens d'imagerie médicale (radio, scanner, IRM) sur les patients."}, {"name": "Kinésithérapeute (hôpitaux puis libéral)", "url1": "https://www.youtube.com/watch?v=RNM11Ix_7uw", "url2": "https://www.youtube.com/watch?v=zO361SZf8WU", "desc": "Rééduque les patients après une blessure, une opération ou une maladie invalidante."}, {"name": "Masseur Kinésithérapeute INSEP (sport)", "url1": "https://www.youtube.com/watch?v=HujGytlPE1c", "url2": null, "desc": "Assure le suivi physique et la récupération des sportifs de haut niveau."}, {"name": "Ergothérapeute", "url1": "https://www.youtube.com/watch?v=ZkGJtEeE7W8", "url2": null, "desc": "Aide les personnes handicapées à retrouver leur autonomie dans la vie quotidienne."}, {"name": "Psychomotricien", "url1": "https://www.youtube.com/watch?v=khpSKAprYHo", "url2": null, "desc": "Rééduque les troubles du mouvement et de l'expression corporelle."}, {"name": "Pharmacien hospitalier", "url1": "https://www.youtube.com/watch?v=lSCX-3OiQW4", "url2": null, "desc": "Gère les médicaments et dispositifs médicaux stériles dans un hôpital."}, {"name": "Diététicien·ne", "url1": "https://www.youtube.com/watch?v=mViohtOE1E4", "url2": "https://www.youtube.com/watch?v=-FNkd5uz4k0", "desc": "Conseille les patients sur leur alimentation pour prévenir ou traiter des pathologies."}, {"name": "Sage femme", "url1": "https://www.youtube.com/watch?v=klk0J4V7qlk", "url2": null, "desc": "Assure le suivi de la grossesse, l'accouchement et le suivi post-natal."}, {"name": "Biologiste médical", "url1": "https://www.youtube.com/watch?v=ksueXhuAqIg", "url2": null, "desc": "Dirige un laboratoire d'analyses médicales et interprète les résultats."}, {"name": "Technicien de laboratoire", "url1": "https://www.youtube.com/watch?v=cnV0NTqowjw", "url2": null, "desc": "Réalise des analyses biologiques sur les prélèvements des patients."}, {"name": "Préparateur·trice en pharmacie à l'hôpital", "url1": "https://www.youtube.com/watch?v=TC7LMWqRqcQ", "url2": null, "desc": "Prépare les médicaments sous contrôle pharmaceutique pour les services hospitaliers."}, {"name": "Aide-soignant·e", "url1": "https://www.youtube.com/watch?v=fPIrAtiwj6E", "url2": "https://www.youtube.com/watch?v=iCMWWxjoCxM", "desc": "Accompagne les patients dans les actes de la vie quotidienne et assiste les infirmiers."}, {"name": "Chirurgienne-dentiste", "url1": "https://www.youtube.com/watch?v=NsXuTJxystM", "url2": null, "desc": "Diagnostique et traite les maladies des dents et de la bouche."}, {"name": "Orthodontiste", "url1": "https://www.youtube.com/watch?v=f-BT2-KSzbE", "url2": null, "desc": "Corrige les malpositions dentaires à l'aide d'appareils orthodontiques."}, {"name": "Assistant·e dentaire", "url1": "https://www.youtube.com/watch?v=68m0emzBD-4", "url2": null, "desc": "Assiste le dentiste lors des soins et gère la stérilisation du matériel."}, {"name": "Auxiliaire de puériculture", "url1": "https://www.youtube.com/watch?v=lv03Rse4Yfo", "url2": null, "desc": "Prend soin des nouveau-nés et jeunes enfants en crèche ou en maternité."}, {"name": "Brancardier régulateur", "url1": "https://www.youtube.com/watch?v=GwwGlqlFxNU", "url2": null, "desc": "Transporte les patients dans les hôpitaux et coordonne les transferts."}, {"name": "Assistant de régulation médicale au SAMU", "url1": "https://www.youtube.com/watch?v=VbZSkcGiZps", "url2": null, "desc": "Reçoit les appels d'urgence médicale et coordonne les interventions."}, {"name": "Secrétaire médicale au laboratoire", "url1": "https://www.youtube.com/watch?v=wKJxezrwZis", "url2": null, "desc": "Gère les dossiers des patients et assure l'accueil dans un laboratoire d'analyses."}, {"name": "Standardiste à l'hôpital", "url1": "https://www.youtube.com/watch?v=mU9fyxjwUeA", "url2": null, "desc": "Gère les communications téléphoniques dans un établissement de santé."}, {"name": "Animatrice qualité et gestion des risques", "url1": "https://www.youtube.com/watch?v=yWqSTqfKoiI", "url2": null, "desc": "Pilote les démarches qualité et la sécurité des soins dans un établissement."}, {"name": "Acheteur hospitalier", "url1": "https://www.youtube.com/watch?v=1444FpEZCLE", "url2": null, "desc": "Négocie les contrats d'achat de matériels médicaux et médicaments pour un hôpital."}]}, {"name": "Santé - Thérapies complémentaires, accompagnement et bien-être", "specs": "SVT + Physique-Chimie ou SVT + SES", "options": "", "debouches": "Licences bio, STAPS, psychologie", "hasVideos": true, "jobs": [{"name": "Ostéopathe", "url1": "https://www.youtube.com/watch?v=tZUbec4ZUuA", "url2": null, "desc": "Traite les douleurs et dysfonctions du corps par des manipulations manuelles."}, {"name": "Chiropracteur", "url1": "https://www.youtube.com/watch?v=dVljSzOwndU", "url2": null, "desc": "Prend en charge les troubles musculo-squelettiques par des ajustements vertébraux."}, {"name": "Psychologue", "url1": "https://www.youtube.com/watch?v=ZRYAu4l6S6A", "url2": null, "desc": "Évalue et accompagne les personnes en souffrance psychologique par des entretiens et thérapies."}, {"name": "Psychologue du travail à l'hôpital", "url1": "https://www.youtube.com/watch?v=mI22WVEwLl4", "url2": null, "desc": "Accompagne les professionnels de santé face au stress et aux risques psychosociaux."}, {"name": "Neuropsychologue", "url1": "https://www.youtube.com/watch?v=MikO5HlkUSA", "url2": null, "desc": "Évalue les fonctions cognitives et accompagne les patients ayant des lésions cérébrales."}, {"name": "Préparateur mental (sport professionnel)", "url1": "https://www.youtube.com/watch?v=6doNtSDKKyg", "url2": null, "desc": "Accompagne les sportifs de haut niveau dans la gestion du stress et des performances mentales."}]}, {"name": "Sciences de l'évolution", "specs": "SVT + Physique-Chimie, SVT + Maths ou SVT + HGGSP", "options": "", "debouches": "Licence bio, master évolution", "hasVideos": true, "jobs": [{"name": "Paléobiologiste", "url1": "https://www.youtube.com/watch?v=qJgYv9WJpKA", "url2": null, "desc": "Étudie les formes de vie anciennes à travers les fossiles pour comprendre l'évolution."}, {"name": "Chercheuse en écologie évolutive", "url1": "https://www.youtube.com/watch?v=fvyxa2xwkio", "url2": null, "desc": "Utilise la modélisation mathématique pour comprendre comment le vivant répond aux changements environnementaux sur le temps long."}]}, {"name": "Sport", "specs": "SVT + Physique-Chimie (STAPS-santé) ou SVT + HGGSP (sport & territoire)", "options": "", "debouches": "Licence STAPS", "hasVideos": true, "jobs": [{"name": "Préparateur physique", "url1": "https://www.youtube.com/watch?v=WB3XoHaqJLg", "url2": null, "desc": "Conçoit et supervise les entraînements physiques des sportifs de haut niveau."}, {"name": "Préparateur mental (sport professionnel)", "url1": "https://www.youtube.com/watch?v=6doNtSDKKyg", "url2": null, "desc": "Accompagne les sportifs dans la gestion du stress et l'optimisation des performances."}, {"name": "Masseur Kinésithérapeute INSEP", "url1": "https://www.youtube.com/watch?v=HujGytlPE1c", "url2": null, "desc": "Assure le suivi physique et la récupération des sportifs de haut niveau à l'INSEP."}, {"name": "Éducateur territorial APS (ETAPS)", "url1": "https://www.youtube.com/watch?v=R3O1_l2KFC0", "url2": null, "desc": "Anime des activités sportives dans une collectivité territoriale."}, {"name": "Éducatrice socio-sportive", "url1": "https://www.youtube.com/watch?v=bFA-AWpUhkE", "url2": null, "desc": "Utilise le sport comme outil d'insertion sociale auprès de publics en difficulté."}, {"name": "Agent de développement", "url1": "https://www.youtube.com/watch?v=8gVb9nsMmTo", "url2": null, "desc": "Développe la pratique sportive sur un territoire en animant un réseau de clubs."}, {"name": "Enseignant en Activité Physique Adaptée", "url1": "https://www.youtube.com/watch?v=KZOY1TYeJnI", "url2": null, "desc": "Conçoit des programmes sportifs pour des personnes en situation de handicap."}, {"name": "Analyste des données INSEP", "url1": "https://www.youtube.com/watch?v=FPN1Afjo0Ss", "url2": null, "desc": "Exploite les données de performance des athlètes pour optimiser l'entraînement."}, {"name": "Analyste de données Cyclisme", "url1": "https://www.youtube.com/watch?v=x4sDjxuu51Y", "url2": null, "desc": "Traite les données des cyclistes professionnels pour améliorer leurs performances."}, {"name": "Conseiller Technique de Ligue Triathlon", "url1": "https://www.youtube.com/watch?v=MCpBT_U8daQ", "url2": null, "desc": "Forme les entraîneurs et encadre le développement sportif d'une discipline."}, {"name": "Conseillère technique national", "url1": "https://www.youtube.com/watch?v=eaneFYbeJmc", "url2": null, "desc": "Définit et coordonne la politique sportive nationale d'une fédération."}, {"name": "Directeur de Ligue Triathlon", "url1": "https://www.youtube.com/watch?v=hohOJPG7ndM", "url2": null, "desc": "Gère administrativement et sportivement une ligue régionale de triathlon."}, {"name": "Directrice sportive/Directeur sportif", "url1": "https://www.youtube.com/watch?v=1iMZiwARv8A", "url2": null, "desc": "Dirige la stratégie sportive d'un club ou d'une fédération."}, {"name": "Responsable de salle de sport", "url1": "https://www.youtube.com/watch?v=ZGzRfFtq3Qo", "url2": null, "desc": "Gère une salle de fitness : personnel, programmes et clientèle."}, {"name": "Organisateur d'événement sportif", "url1": "https://www.youtube.com/watch?v=7jyIS1CKozQ", "url2": null, "desc": "Planifie et coordonne les compétitions sportives de l'inscription à la remise des prix."}, {"name": "Entraîneure Ski Nautique", "url1": "https://www.youtube.com/watch?v=_mWbEtIhpPU", "url2": null, "desc": "Entraîne des sportifs en ski nautique en gérant leur progression technique."}, {"name": "Ingénieur Recherche et Développement en biomécanique chez Decathlon", "url1": "https://www.youtube.com/watch?v=Gs7ui-VSsXQ", "url2": null, "desc": "Conçoit des équipements sportifs en analysant les mouvements du corps humain."}, {"name": "Enseignant chercheur en sciences du sport", "url1": "https://www.youtube.com/watch?v=rSKfN-FTyK0", "url2": null, "desc": "Combine enseignement universitaire et recherche sur la physiologie de l'exercice."}]}, {"name": "Apiculture & Entomologie appliquée", "specs": "SVT + Physique-Chimie ou SVT + HGGSP", "options": "", "debouches": "Licence bio, masters entomologie", "hasVideos": false, "jobs": []}, {"name": "Aquaculture & Pêche durable", "specs": "SVT + Physique-Chimie ou SVT + HGGSP", "options": "", "debouches": "Licences bio marine", "hasVideos": false, "jobs": []}, {"name": "Biomatériaux & Implants", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Écoles d'ingénieurs biomédicaux", "hasVideos": false, "jobs": []}, {"name": "Biomimétisme & Éco-conception", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Écoles d'ingénieurs, licences bio", "hasVideos": false, "jobs": []}, {"name": "Enseignement & Recherche en SVT", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "Maths compl. (option Tle) si Maths non conservée", "debouches": "Licence bio, master MEEF SVT", "hasVideos": false, "jobs": []}, {"name": "Génie écologique & Restauration", "specs": "SVT + HGGSP ou SVT + Physique-Chimie", "options": "", "debouches": "Licences écologie", "hasVideos": false, "jobs": []}, {"name": "Jardins & Espaces verts", "specs": "SVT + HGGSP ou SVT + Physique-Chimie", "options": "", "debouches": "Licences pro paysage", "hasVideos": false, "jobs": []}, {"name": "Journalisme & Médiation scientifique", "specs": "Voie Sciences Po/journalisme : libre choix • Voie université : SVT + HGGSP ou SVT + LLCER", "options": "DGEMC conseillée (option Tle)", "debouches": "Écoles de journalisme ; SVT pour la médiation scientifique", "hasVideos": false, "jobs": []}, {"name": "Muséographie", "specs": "Voie patrimoine/IEP : libre choix • Voie université : SVT + HGGSP ou SVT + Arts", "options": "DGEMC conseillée (option Tle)", "debouches": "Muséums, écoles du patrimoine", "hasVideos": false, "jobs": []}, {"name": "Muséologie scientifique", "specs": "Voie patrimoine/IEP : libre choix • Voie université : SVT + HGGSP ou SVT + Arts", "options": "DGEMC conseillée (option Tle)", "debouches": "Muséums, écoles du patrimoine", "hasVideos": false, "jobs": []}, {"name": "Mycologie & Champignons", "specs": "SVT + Physique-Chimie, SVT + Maths ou SVT + HGGSP", "options": "", "debouches": "Licence bio, master mycologie", "hasVideos": false, "jobs": []}, {"name": "One Health / Santé globale", "specs": "SVT + Physique-Chimie, SVT + Maths ou SVT + HGGSP", "options": "DGEMC conseillée (option Tle)", "debouches": "PASS, licences bio, vétérinaire", "hasVideos": false, "jobs": []}, {"name": "Toxicologie & Sécurité chimique", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Licences chimie ou bio, masters toxicologie", "hasVideos": false, "jobs": []}, {"name": "Vétérinaire & Santé animale", "specs": "SVT + Physique-Chimie ou SVT + Maths", "options": "", "debouches": "Prépa BCPST → ENV (concours sélectif)", "hasVideos": false, "jobs": []}];
 
-const ICONS = {
-  default: "🔬",
-  "Agronomie": "🌾", "Agroalimentaire": "🥗", "Biochimie": "⚗️",
-  "Biodiversité": "🦋", "Bioinformatique": "💻", "Biologie cellulaire": "🔬",
-  "Biologie moléculaire": "🧬", "Biologie végétale": "🌿", "Biotechnologies": "🧪",
-  "Commerce": "🤝", "Data science": "📊", "Droit": "⚖️",
-  "Epidémiologie": "📈", "Ethologie et comportement animal": "🐾",
-  "Exobiologie": "🚀", "Finance": "💹", "Forêts": "🌲",
-  "Génétique": "🧬", "Géosciences": "🪨", "Géotechnique": "⛏️",
-  "Hydrogéologie": "💧", "Météorologie": "🌤️", "Missions scientifiques": "🧭",
-  "Muséographie": "🏛️", "Neurosciences": "🧠", "Océanographie": "🌊",
-  "Optique & Vision": "👁️", "Paléontologie": "🦕", "Pharmacie": "💊",
-  "Physiologie humaine": "❤️", "Police scientifique": "🔍",
-  "Psychologie/Psychiatrie": "🧠", "Responsabilité sociétal des entreprises": "♻️",
-  "Sciences de l\'évolution": "🦎", "Santé - Professions médicales et paramédicales": "🩺",
-  "Santé - Thérapies complémentaires, accompagnement et bien-être": "🌸",
-  "Sport": "⚽", "Apiculture & Entomologie appliquée": "🐝",
-  "Aquaculture & Pêche durable": "🐟", "Biomatériaux & Implants": "🦴",
-  "Biomimétisme & Éco-conception": "🌱", "Cosmétique & Dermatologie": "✨",
-  "Enseignement & Recherche en SVT": "📚", "Génie écologique & Restauration": "🌍",
-  "Jardins & Espaces verts": "🌻", "Journalisme & Médiation scientifique": "📰",
-  "Muséologie scientifique": "🏺", "Mycologie & Champignons": "🍄",
-  "One Health / Santé globale": "🌐", "Toxicologie & Sécurité chimique": "⚠️",
-  "Vétérinaire & Santé animale": "🐾",
-};
-
-let currentFilter = "all";
-let currentSearch = "";
-
-function getIcon(name) {
-  return ICONS[name] || ICONS.default;
-}
-
-function buildCard(cat, idx) {
-  const hasVid = cat.hasVideos;
-  const jobs = cat.jobs;
-  const vidCount = jobs.filter(j => j.url1 || j.url2).length;
-
-  const jobRows = jobs.map((j, i) => {
-    const isPlaceholder = !j.url1 && !j.url2 && !hasVid;
-    const nameEl = isPlaceholder
-      ? `<span class="job-name placeholder">${j.name}</span>`
-      : `<span class="job-name">${j.name}</span>`;
-    const btn1 = j.url1
-      ? `<a class="video-btn video-btn-1" href="${j.url1}" target="_blank" rel="noopener">
-           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Vidéo 1
-         </a>`
-      : `<span class="video-empty"></span>`;
-    const btn2 = j.url2
-      ? `<a class="video-btn video-btn-2" href="${j.url2}" target="_blank" rel="noopener">
-           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Vidéo 2
-         </a>`
-      : `<span class="video-empty"></span>`;
-    return `<div class="job-row ${i%2===0?'odd':''}">${nameEl}${btn1}${btn2}</div>`;
+const ICONS = {"default": "🔬", "Agronomie": "🌾", "Agroalimentaire": "🥗", "Biochimie": "⚗️", "Biodiversité": "🦋", "Bioinformatique": "💻", "Biologie cellulaire": "🔬", "Biologie moléculaire": "🧬", "Biologie végétale": "🌿", "Biotechnologies": "🧪", "Commerce": "🤝", "Data science": "📊", "Droit": "⚖️", "Epidémiologie": "📈", "Ethologie et comportement animal": "🐾", "Exobiologie": "🚀", "Finance": "💹", "Forêts": "🌲", "Génétique": "🧬", "Géosciences": "🪨", "Géotechnique": "⛏️", "Hydrogéologie": "💧", "Météorologie": "🌤️", "Missions scientifiques": "🧭", "Muséographie": "🏛️", "Neurosciences": "🧠", "Océanographie": "🌊", "Optique & Vision": "👁️", "Paléontologie": "🦕", "Pharmacie": "💊", "Physiologie humaine": "❤️", "Police scientifique": "🔍", "Psychologie/Psychiatrie": "🧩", "Responsabilité sociétale des entreprises": "♻️", "Sciences de l'évolution": "🦎", "Santé - Professions médicales et paramédicales": "🩺", "Santé - Thérapies complémentaires, accompagnement et bien-être": "🌸", "Sport": "⚽", "Apiculture & Entomologie appliquée": "🐝", "Aquaculture & Pêche durable": "🐟", "Biomatériaux & Implants": "🦴", "Biomimétisme & Éco-conception": "🌱", "Cosmétique & Dermatologie": "✨", "Enseignement & Recherche en SVT": "📚", "Génie écologique & Restauration": "🌍", "Jardins & Espaces verts": "🌻", "Journalisme & Médiation scientifique": "📰", "Muséologie scientifique": "🏺", "Mycologie & Champignons": "🍄", "One Health / Santé globale": "🌐", "Toxicologie & Sécurité chimique": "⚠️", "Vétérinaire & Santé animale": "🐾"};
+let currentFilter="all", currentSearch="";
+function getIcon(n){return ICONS[n]||ICONS.default}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function buildCard(cat, idx){
+  const hasVid=cat.hasVideos;
+  const vidCount=cat.jobs.filter(j=>j.url1||j.url2).length;
+  const jobRows=cat.jobs.map((j,i)=>{
+    const placeholder=!j.url1&&!j.url2&&!hasVid;
+    const desc=j.desc?`<span class="job-desc">${esc(j.desc)}</span>`:'';
+    const info=`<div class="job-info"><span class="job-name${placeholder?' placeholder':''}">${esc(j.name)}</span>${desc}</div>`;
+    const b1=j.url1?`<a class="video-btn video-btn-1" href="${j.url1}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Vidéo 1</a>`:`<span class="video-empty"></span>`;
+    const b2=j.url2?`<a class="video-btn video-btn-2" href="${j.url2}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Vidéo 2</a>`:`<span class="video-empty"></span>`;
+    return `<div class="job-row ${i%2===0?'odd':''}">${info}${b1}${b2}</div>`;
   }).join('');
-
-  const badge = hasVid
-    ? `<span class="badge badge-count">${vidCount} vidéo${vidCount>1?'s':''}</span>`
-    : `<span class="badge badge-todo">À compléter</span>`;
-
+  const badge=hasVid?`<span class="badge badge-count">${vidCount} vidéo${vidCount>1?'s':''}</span>`:`<span class="badge badge-todo">À compléter</span>`;
+  const optRow=cat.options?`<div class="specs-row"><span class="specs-chip chip-opt">Option</span><span class="specs-text muted">${esc(cat.options)}</span></div>`:'';
+  const debRow=cat.debouches?`<div class="specs-row"><span class="specs-chip chip-deb">Débouchés</span><span class="specs-text muted">${esc(cat.debouches)}</span></div>`:'';
   return `
 <div class="cat-card${hasVid?'':' no-video'}" data-name="${cat.name.toLowerCase()}" data-has-videos="${hasVid}" id="cat-${idx}">
   <div class="cat-header" onclick="toggleCard(${idx})">
-    <div class="cat-header-left">
-      <div class="cat-icon">${getIcon(cat.name)}</div>
-      <span class="cat-name">${cat.name}</span>
-    </div>
-    <div class="cat-meta">
-      ${badge}
-      <span class="cat-toggle">
-        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/></svg>
-      </span>
-    </div>
+    <div class="cat-header-left"><div class="cat-icon">${getIcon(cat.name)}</div><span class="cat-name">${esc(cat.name)}</span></div>
+    <div class="cat-meta">${badge}<span class="cat-toggle"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/></svg></span></div>
   </div>
   <div class="specs-bar">
-    <span class="specs-label">Spécialités</span>
-    <span class="specs-text">${cat.specs}</span>
+    <div class="specs-row"><span class="specs-chip chip-spec">Spécialités</span><span class="specs-text">${esc(cat.specs)}</span></div>
+    ${optRow}${debRow}
   </div>
   <div class="jobs-list">${jobRows}</div>
 </div>`;
 }
-
-function render() {
-  const withVid = DATA.filter(c => c.hasVideos);
-  const todo    = DATA.filter(c => !c.hasVideos);
-
-  document.getElementById('cats-with-videos').innerHTML = withVid.map((c,i) => buildCard(c, i)).join('');
-  document.getElementById('cats-todo').innerHTML        = todo.map((c,i) => buildCard(c, withVid.length + i)).join('');
+function render(){
+  const withVid=DATA.filter(c=>c.hasVideos), todo=DATA.filter(c=>!c.hasVideos);
+  document.getElementById('cats-with-videos').innerHTML=withVid.map((c,i)=>buildCard(c,i)).join('');
+  document.getElementById('cats-todo').innerHTML=todo.map((c,i)=>buildCard(c,withVid.length+i)).join('');
+  const nJobs=DATA.reduce((a,c)=>a+c.jobs.length,0);
+  const nVid=DATA.reduce((a,c)=>a+c.jobs.reduce((s,j)=>s+(j.url1?1:0)+(j.url2?1:0),0),0);
+  document.getElementById('stat-cats').textContent=DATA.length;
+  document.getElementById('stat-jobs').textContent=nJobs;
+  document.getElementById('stat-videos').textContent=nVid;
   applyFilters();
 }
-
-function toggleCard(idx) {
-  const card = document.getElementById('cat-' + idx);
-  if (card) card.classList.toggle('open');
-}
-
-function applyFilters() {
-  const q = currentSearch.toLowerCase().trim();
-  const filter = currentFilter;
-  let visible = 0;
-
-  document.querySelectorAll('.cat-card').forEach(card => {
-    const name = card.dataset.name;
-    const hasVideos = card.dataset.hasVideos === 'true';
-
-    const matchSearch = !q || name.includes(q) ||
-      [...card.querySelectorAll('.job-name')].some(el => el.textContent.toLowerCase().includes(q));
-    const matchFilter =
-      filter === 'all' ||
-      (filter === 'videos' && hasVideos) ||
-      (filter === 'todo' && !hasVideos);
-
-    const show = matchSearch && matchFilter;
-    card.classList.toggle('hidden', !show);
-    if (show) {
-      visible++;
-      // Auto-expand if searching
-      if (q) {
-        card.classList.add('open');
-        // Highlight matching jobs
-        card.querySelectorAll('.job-row').forEach(row => {
-          const jobName = row.querySelector('.job-name');
-          if (jobName && !jobName.textContent.toLowerCase().includes(q)) {
-            row.style.opacity = '0.4';
-          } else {
-            row.style.opacity = '1';
-          }
-        });
-      } else {
-        card.querySelectorAll('.job-row').forEach(row => row.style.opacity = '1');
-      }
+function toggleCard(idx){const c=document.getElementById('cat-'+idx);if(c)c.classList.toggle('open')}
+function applyFilters(){
+  const q=currentSearch.toLowerCase().trim(),filter=currentFilter;let visible=0;
+  document.querySelectorAll('.cat-card').forEach(card=>{
+    const name=card.dataset.name,hasVideos=card.dataset.hasVideos==='true';
+    const txt=[...card.querySelectorAll('.job-name,.job-desc')].map(e=>e.textContent.toLowerCase());
+    const matchSearch=!q||name.includes(q)||txt.some(t=>t.includes(q));
+    const matchFilter=filter==='all'||(filter==='videos'&&hasVideos)||(filter==='todo'&&!hasVideos);
+    const show=matchSearch&&matchFilter;card.classList.toggle('hidden',!show);
+    if(show){visible++;
+      if(q){card.classList.add('open');
+        card.querySelectorAll('.job-row').forEach(row=>{const n=row.querySelector('.job-name');const d=row.querySelector('.job-desc');const hit=(n&&n.textContent.toLowerCase().includes(q))||(d&&d.textContent.toLowerCase().includes(q));row.style.opacity=hit?'1':'0.4';});
+      }else{card.querySelectorAll('.job-row').forEach(row=>row.style.opacity='1');}
     }
   });
-
-  document.getElementById('result-count').textContent =
-    q ? `${visible} catégorie${visible>1?'s':''} trouvée${visible>1?'s':''}` : '';
-
-  const noResult = visible === 0;
-  document.getElementById('empty-state').style.display = noResult ? 'block' : 'none';
-
-  // Show/hide separators
-  const withFilter = filter === 'all' || filter === 'videos';
-  const todoFilter = filter === 'all' || filter === 'todo';
-  document.getElementById('sep-videos').style.display = withFilter ? '' : 'none';
-  document.getElementById('sep-todo').style.display   = todoFilter ? '' : 'none';
+  document.getElementById('result-count').textContent=q?`${visible} catégorie${visible>1?'s':''} trouvée${visible>1?'s':''}`:'';
+  document.getElementById('empty-state').style.display=visible===0?'block':'none';
+  document.getElementById('sep-videos').style.display=(filter==='all'||filter==='videos')?'':'none';
+  document.getElementById('sep-todo').style.display=(filter==='all'||filter==='todo')?'':'none';
 }
-
-// Search
-let searchTimer;
-document.getElementById('search').addEventListener('input', e => {
-  clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => {
-    currentSearch = e.target.value;
-    applyFilters();
-  }, 200);
-});
-
-// Filters
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    currentSearch = '';
-    document.getElementById('search').value = '';
-    applyFilters();
-  });
-});
-
+let st;document.getElementById('search').addEventListener('input',e=>{clearTimeout(st);st=setTimeout(()=>{currentSearch=e.target.value;applyFilters();},200);});
+document.querySelectorAll('.filter-btn').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');currentFilter=b.dataset.filter;currentSearch='';document.getElementById('search').value='';applyFilters();});});
 render();
+
 </script>
 </body>
 </html>
