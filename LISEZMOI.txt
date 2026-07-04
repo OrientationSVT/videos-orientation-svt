@@ -1,0 +1,46 @@
+GÉNÉRATEUR DU SITE « Vidéos d'Orientation SVT »
+================================================
+
+À QUOI ÇA SERT
+--------------
+Régénère le fichier index.html à partir de votre fichier Excel, directement
+sur votre ordinateur, sans connexion et sans limite — autant de fois que
+vous le souhaitez.
+
+
+INSTALLATION (une seule fois)
+-----------------------------
+1. Installez Python : https://www.python.org/downloads/
+   >>> Pendant l'installation, COCHEZ la case « Add Python to PATH ». <<<
+
+2. Installez la brique de lecture Excel :
+   - Menu Démarrer -> tapez « cmd » -> ouvrez l'Invite de commandes.
+   - Tapez :  py -m pip install openpyxl   puis Entrée.
+
+
+MISE EN PLACE
+-------------
+Placez « generer_site.py » et « lancer.bat » dans le MÊME dossier que :
+   - votre fichier Excel (ex. Vidéos_orientation_v8.xlsx)
+   - votre fichier index.html
+C'est le dossier de votre dépôt GitHub (celui qu'ouvre GitHub Desktop).
+
+
+UTILISATION (à chaque mise à jour)
+----------------------------------
+1. Modifiez votre Excel, enregistrez-le et FERMEZ-le.
+2. Double-cliquez sur « lancer.bat ».
+   -> index.html est régénéré en quelques secondes.
+3. Ouvrez GitHub Desktop, validez (Commit) puis publiez (Push).
+
+
+BON À SAVOIR
+------------
+- Le script prend automatiquement le fichier .xlsx le plus récent du dossier
+  dont le nom contient « orientation ».
+- Il lit la colonne « Combinaisons spé (code) » pour le filtre par spécialités,
+  et le feuillet « Regroupements » pour les domaines.
+- S'il signale une catégorie « sans domaine », c'est qu'elle manque dans le
+  feuillet « Regroupements » : ajoutez-la et relancez.
+- Si un jour vous changez la STRUCTURE de l'Excel (nouvelle colonne, feuillet
+  renommé, ordre des colonnes...), le script devra être adapté — demandez-le moi.
