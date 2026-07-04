@@ -221,7 +221,7 @@ main{max-width:1100px;margin:0 auto;padding:20px 32px 60px}
 .cat-header-left{display:flex;align-items:center;gap:14px;min-width:0}
 .cat-icon{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;background:var(--g100);border-radius:11px;font-size:1.3rem}
 .no-video .cat-icon{background:var(--e100)}
-.cat-name{font-family:'Playfair Display',serif;font-weight:600;font-size:1.16rem;color:var(--ink)}
+.cat-name{font-family:'Playfair Display',serif;font-weight:600;font-size:1.16rem;color:var(--ink);min-width:0;overflow-wrap:anywhere}
 .cat-meta{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .badge{font-size:.76rem;font-weight:700;padding:4px 11px;border-radius:30px;white-space:nowrap}
 .badge-count{background:var(--g100);color:var(--g800)}
@@ -264,6 +264,7 @@ footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
   .controls-inner,main{padding-left:18px;padding-right:18px}
   .job-row{flex-wrap:wrap}.video-btn{font-size:.8rem;padding:6px 11px}
   .cat-name{font-size:1.05rem}.domain-header .d-name{font-size:1.15rem}
+  .cat-header{flex-direction:column;align-items:flex-start;gap:9px}
   .toc-grid{grid-template-columns:1fr 1fr}
   .result-count{margin-left:0;width:100%}
 }
