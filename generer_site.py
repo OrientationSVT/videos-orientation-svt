@@ -253,6 +253,23 @@ main{max-width:1100px;margin:0 auto;padding:20px 32px 60px}
 .video-btn-2{background:linear-gradient(135deg,var(--e500),var(--e600))}
 .video-btn-2:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .video-empty{width:1px}
+/* Favoris */
+.fav-btn{flex-shrink:0;width:34px;height:34px;display:grid;place-items:center;border:1.5px solid var(--line);background:var(--card);border-radius:50%;cursor:pointer;transition:.15s;padding:0;color:#C9B45A}
+.fav-btn svg{width:18px;height:18px;transition:transform .15s}
+.fav-btn:hover{border-color:#E0C64E;background:#FEFBF0}
+.fav-btn:hover svg{transform:scale(1.12)}
+.fav-btn:focus-visible{outline:3px solid var(--g500);outline-offset:2px}
+.fav-btn.on{border-color:#E7C33A;background:#FDF6DD;color:#E0A81E}
+.fav-btn.on svg{fill:#F4C430}
+.fav-btn:not(.on) svg{fill:none;stroke:currentColor;stroke-width:1.8}
+.job-row.hidden{display:none}
+.fav-count-badge{display:inline-flex;align-items:center;gap:5px;background:#FDF6DD;color:#9A7B12;border:1.5px solid #E7C33A;padding:8px 15px;border-radius:30px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit;transition:.15s}
+.fav-count-badge:hover{background:#FBEFC2}
+.fav-count-badge.active{background:#F4C430;border-color:#E0A81E;color:#3D2E00}
+.fav-count-badge svg{width:15px;height:15px;fill:currentColor}
+.fav-empty{display:none;text-align:center;padding:52px 20px;color:var(--muted)}
+.fav-empty svg{width:44px;height:44px;margin-bottom:12px;opacity:.5;fill:none;stroke:currentColor;stroke-width:1.5}
+.fav-empty strong{color:var(--ink);font-weight:600}
 .empty-state{display:none;text-align:center;padding:60px 20px;color:var(--muted)}
 .empty-state svg{width:46px;height:46px;margin-bottom:14px;opacity:.5}
 footer{background:var(--g900);color:#D9E7DD;text-align:center;padding:28px 32px;font-size:.86rem;line-height:1.7}
@@ -310,6 +327,10 @@ footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
     </div>
     <div class="controls-row">
       <div class="domain-nav" id="domain-nav"></div>
+      <button class="fav-count-badge" id="fav-toggle" aria-pressed="false" title="Afficher mes favoris" style="display:none">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>
+        <span id="fav-toggle-label">Favoris</span>
+      </button>
       <span class="result-count" id="result-count"></span>
     </div>
   </div>
@@ -317,6 +338,10 @@ footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
 <main>
   <div class="toc" id="toc"></div>
   <div id="domains"></div>
+  <div class="fav-empty" id="fav-empty">
+    <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>
+    <p><strong>Aucun favori pour l'instant.</strong><br>Cliquez sur l'étoile ☆ à côté d'un métier pour l'enregistrer et le retrouver ici.</p>
+  </div>
   <div class="empty-state" id="empty-state">
     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
     <p>Aucun résultat pour cette sélection.</p>
@@ -336,6 +361,46 @@ const SPEC_LABEL = Object.fromEntries(SPECIALTIES.map(s=>[s[0],s[1]]));
 
 let currentStatus="all", currentDomain="all", currentSearch="";
 let selectedSpecs=new Set();
+let favOnly=false;
+
+const FAV_KEY='svt_orientation_favoris';
+let favorites=new Set();
+function loadFavorites(){
+  try{ const raw=localStorage.getItem(FAV_KEY); if(raw) favorites=new Set(JSON.parse(raw)); }
+  catch(e){ favorites=new Set(); }
+}
+function saveFavorites(){
+  try{ localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); }catch(e){}
+}
+function toggleFavorite(fid){
+  if(favorites.has(fid)) favorites.delete(fid); else favorites.add(fid);
+  saveFavorites();
+  document.querySelectorAll(`.fav-btn[data-fid="${cssEsc(fid)}"]`).forEach(b=>{
+    const on=favorites.has(fid);
+    b.classList.toggle('on',on);
+    b.setAttribute('aria-pressed',on);
+    b.setAttribute('title',on?'Retirer des favoris':'Ajouter aux favoris');
+  });
+  refreshFavUI();
+  if(favOnly) applyFilters();
+}
+function cssEsc(s){ return (window.CSS&&CSS.escape)?CSS.escape(s):s.replace(/["\\]/g,'\\$&'); }
+function refreshFavUI(){
+  const n=favorites.size;
+  const btn=document.getElementById('fav-toggle');
+  const lbl=document.getElementById('fav-toggle-label');
+  btn.style.display = n>0 ? 'inline-flex' : 'none';
+  lbl.textContent = 'Favoris'+(n>0?' ('+n+')':'');
+  if(n===0 && favOnly){ favOnly=false; btn.classList.remove('active'); btn.setAttribute('aria-pressed','false'); }
+}
+function syncFavButtons(){
+  document.querySelectorAll('.fav-btn').forEach(b=>{
+    const on=favorites.has(b.dataset.fid);
+    b.classList.toggle('on',on);
+    b.setAttribute('aria-pressed',on);
+    b.setAttribute('title',on?'Retirer des favoris':'Ajouter aux favoris');
+  });
+}
 
 function getIcon(n){return ICONS[n]||ICONS.default}
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
@@ -351,7 +416,9 @@ function buildCard(cat){
     const info=`<div class="job-info"><span class="job-name${placeholder?' placeholder':''}">${esc(j.name)}</span>${desc}</div>`;
     const b1=j.url1?`<a class="video-btn video-btn-1" href="${esc(j.url1)}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Vidéo 1</a>`:`<span class="video-empty"></span>`;
     const b2=j.url2?`<a class="video-btn video-btn-2" href="${esc(j.url2)}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Vidéo 2</a>`:`<span class="video-empty"></span>`;
-    return `<div class="job-row ${i%2===0?'odd':''}">${info}${b1}${b2}</div>`;
+    const fid=cat.name+'::'+j.name;
+    const fav=`<button class="fav-btn" type="button" data-fid="${esc(fid)}" aria-pressed="false" aria-label="Ajouter ${esc(j.name)} aux favoris" title="Ajouter aux favoris"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg></button>`;
+    return `<div class="job-row ${i%2===0?'odd':''}" data-fid="${esc(fid)}">${info}${b1}${b2}${fav}</div>`;
   }).join('');
   const badge=hasVid?`<span class="badge badge-count">${nbMet} métier${nbMet>1?'s':''} · ${nbVid} vidéo${nbVid>1?'s':''}</span>`:`<span class="badge badge-todo">À compléter</span>`;
   const optRow=cat.options?`<div class="specs-row"><span class="specs-chip chip-opt">Option</span><span class="specs-text muted">${esc(cat.options)}</span></div>`:'';
@@ -394,6 +461,12 @@ function render(){
   buildDomainNav();
   buildToc();
   buildSpecChips();
+  loadFavorites();
+  syncFavButtons();
+  refreshFavUI();
+  document.querySelectorAll('.fav-btn').forEach(b=>b.addEventListener('click',e=>{
+    e.stopPropagation(); toggleFavorite(b.dataset.fid);
+  }));
   applyFilters();
 }
 
@@ -476,28 +549,35 @@ function applyFilters(){
     const matchStatus=currentStatus==='all'||(currentStatus==='videos'&&hasVideos)||(currentStatus==='todo'&&!hasVideos);
     const matchDomain=currentDomain==='all'||cdom===currentDomain;
     const matchSpec=!specActive||libre||combos.some(ps=>ps.length>0&&ps.every(p=>selectedSpecs.has(p)));
-    const show=matchSearch&&matchStatus&&matchDomain&&matchSpec;
+    const favRows=[...card.querySelectorAll('.job-row')].filter(r=>favorites.has(r.dataset.fid));
+    const matchFav=!favOnly||favRows.length>0;
+    const show=matchSearch&&matchStatus&&matchDomain&&matchSpec&&matchFav;
     card.classList.toggle('hidden',!show);
     const mb=card.querySelector('.badge-match');
     if(mb) mb.style.display=(specActive&&show)?'flex':'none';
     if(show){
       visible++; domCount[cdom]=(domCount[cdom]||0)+1;
-      if(q){card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');
-        card.querySelectorAll('.job-row').forEach(row=>{const n=row.querySelector('.job-name');const d=row.querySelector('.job-desc');const hit=(n&&n.textContent.toLowerCase().includes(q))||(d&&d.textContent.toLowerCase().includes(q));row.style.opacity=hit?'1':'0.4';});
-      }else{card.querySelectorAll('.job-row').forEach(row=>row.style.opacity='1');}
+      if(favOnly){
+        card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');
+        card.querySelectorAll('.job-row').forEach(row=>{row.classList.toggle('hidden',!favorites.has(row.dataset.fid));row.style.opacity='1';});
+      }else if(q){card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');
+        card.querySelectorAll('.job-row').forEach(row=>{row.classList.remove('hidden');const n=row.querySelector('.job-name');const d=row.querySelector('.job-desc');const hit=(n&&n.textContent.toLowerCase().includes(q))||(d&&d.textContent.toLowerCase().includes(q));row.style.opacity=hit?'1':'0.4';});
+      }else{card.querySelectorAll('.job-row').forEach(row=>{row.classList.remove('hidden');row.style.opacity='1';});}
     }
   });
   document.querySelectorAll('.domain-section').forEach(sec=>{
     sec.classList.toggle('hidden', !(domCount[sec.dataset.domain]>0));
   });
-  const showToc = currentDomain==='all' && !q && !specActive && currentStatus==='all';
+  const showToc = currentDomain==='all' && !q && !specActive && currentStatus==='all' && !favOnly;
   document.getElementById('toc').classList.toggle('hidden', !showToc);
   const rc=document.getElementById('result-count');
-  if(specActive){ rc.textContent=`${visible} catégorie${visible>1?'s':''} pour SVT + ${[...selectedSpecs].map(c=>SPEC_LABEL[c]||c).join(' + ')}`; }
+  if(favOnly){ const totalFav=favorites.size; rc.textContent=`${totalFav} favori${totalFav>1?'s':''}`; }
+  else if(specActive){ rc.textContent=`${visible} catégorie${visible>1?'s':''} pour SVT + ${[...selectedSpecs].map(c=>SPEC_LABEL[c]||c).join(' + ')}`; }
   else if(q){ rc.textContent=`${visible} catégorie${visible>1?'s':''} trouvée${visible>1?'s':''}`; }
   else if(currentDomain!=='all'||currentStatus!=='all'){ rc.textContent=`${visible} catégorie${visible>1?'s':''}`; }
   else rc.textContent='';
-  document.getElementById('empty-state').style.display=visible===0?'block':'none';
+  document.getElementById('empty-state').style.display=(visible===0&&!favOnly)?'block':'none';
+  document.getElementById('fav-empty').style.display=(favOnly&&visible===0)?'block':'none';
 }
 
 // Événements
@@ -514,6 +594,14 @@ document.getElementById('spec-btn').addEventListener('click',e=>{
 });
 document.getElementById('spec-panel').addEventListener('click',e=>e.stopPropagation());
 document.getElementById('spec-clear').addEventListener('click',clearSpecs);
+document.getElementById('fav-toggle').addEventListener('click',()=>{
+  favOnly=!favOnly;
+  const btn=document.getElementById('fav-toggle');
+  btn.classList.toggle('active',favOnly);
+  btn.setAttribute('aria-pressed',favOnly);
+  applyFilters();
+  if(favOnly){ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); }
+});
 document.addEventListener('click',()=>{ if(specWrap.classList.contains('open')){specWrap.classList.remove('open');document.getElementById('spec-btn').setAttribute('aria-expanded','false');} });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&specWrap.classList.contains('open')){specWrap.classList.remove('open');document.getElementById('spec-btn').setAttribute('aria-expanded','false');} });
 
