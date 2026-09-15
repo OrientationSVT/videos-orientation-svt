@@ -42,10 +42,39 @@ def _parse_codes(v):
     return combos, libre
 
 
+_NIV_CANON = ("Bac / infra", "Bac+2/3", "Bac+5", "Doctorat")
+
+
+def _norm_niveau(v):
+    """Ramene une valeur libre de la colonne 'Niveau' vers l'un des 4 paliers,
+    ou '' si vide/non reconnu (le metier sera alors 'niveau non precise')."""
+    s = str(v or '').strip().lower()
+    if not s:
+        return ''
+    if 'doctor' in s or s in ('doc', 'phd', 'these', 'thèse', 'bac+8'):
+        return 'Doctorat'
+    if 'bac+2' in s or 'bac+3' in s or 'bac +2' in s or 'bac +3' in s or '2/3' in s or 'bts' in s or 'but' in s:
+        return 'Bac+2/3'
+    if 'bac+5' in s or 'bac +5' in s or 'master' in s or 'ingenieur' in s or 'ingénieur' in s:
+        return 'Bac+5'
+    if s.startswith('bac') and ('infra' in s or s in ('bac', 'bac / infra', 'bac/infra')):
+        return 'Bac / infra'
+    for k in _NIV_CANON:
+        if s == k.lower():
+            return k
+    return ''
+
+
 def extraire_donnees(chemin_excel):
     wb = load_workbook(chemin_excel)
     ws = wb['Présentations métiers']
     rg = wb['Regroupements']
+    # Colonne 'Niveau' reperee par son intitule en ligne 4 (placable n'importe ou).
+    niv_col = None
+    for c in range(1, ws.max_column + 1):
+        if str(ws.cell(row=4, column=c).value or '').strip().lower() == 'niveau':
+            niv_col = c
+            break
     domaine_de = {}
     for r in range(2, rg.max_row + 1):
         dom = rg.cell(row=r, column=1).value
@@ -76,8 +105,9 @@ def extraire_donnees(chemin_excel):
             u1 = c3.hyperlink.target if c3.hyperlink else None
             u2 = c4.hyperlink.target if c4.hyperlink else None
             if cur is not None and (u1 or u2 or desc):
+                niv = _norm_niveau(ws.cell(row=r, column=niv_col).value) if niv_col else ''
                 cur["jobs"].append({"name": name, "url1": u1, "url2": u2,
-                                    "desc": (desc or '').strip()})
+                                    "desc": (desc or '').strip(), "niveau": niv})
     for c in data:
         c["hasVideos"] = any(j["url1"] or j["url2"] for j in c["jobs"])
     return data
@@ -157,6 +187,12 @@ h1 span{color:var(--g300);display:inline-block;border-bottom:3px solid var(--e50
 .controls-inner{max-width:1100px;margin:0 auto;padding:12px 32px}
 .controls-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .controls-row+.controls-row{margin-top:10px}
+.filters-toggle{display:flex;align-items:center;gap:6px;margin-left:auto;border:1.5px solid var(--line);background:#fff;color:var(--muted);padding:8px 14px;border-radius:30px;font-family:inherit;font-size:.84rem;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap}
+.filters-toggle:hover{border-color:var(--g300);color:var(--ink)}
+.controls-inner.filters-collapsed #spec-wrap,
+.controls-inner.filters-collapsed #domain-nav,
+.controls-inner.filters-collapsed #niveau-row{display:none !important}
+.controls-inner.filters-collapsed .controls-row+.controls-row{margin-top:0}
 .search-wrap{flex:1;min-width:220px;display:flex;align-items:center;gap:9px;background:var(--card);border:1.5px solid var(--line);border-radius:30px;padding:9px 16px;color:var(--muted);transition:.18s}
 .search-wrap:focus-within{border-color:var(--g500);box-shadow:0 0 0 3px rgba(55,166,92,.16)}
 .search-wrap input{border:none;outline:none;flex:1;font-family:inherit;font-size:.96rem;color:var(--ink);background:transparent;font-weight:300}
@@ -187,6 +223,8 @@ h1 span{color:var(--g300);display:inline-block;border-bottom:3px solid var(--e50
 .spec-clear{background:none;border:none;color:var(--e600);font-weight:700;cursor:pointer;font-family:inherit;font-size:.82rem}
 .spec-clear:hover{text-decoration:underline}
 /* Navigation par domaine */
+.niveau-nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:2px 0}
+.niveau-label{font-size:.82rem;font-weight:700;color:var(--muted);margin-right:2px}
 .domain-nav{display:flex;gap:8px;overflow-x:auto;padding:2px 0;scrollbar-width:thin;flex:1;min-width:0}
 .domain-nav::-webkit-scrollbar{height:5px}
 .domain-nav::-webkit-scrollbar-thumb{background:var(--g300);border-radius:5px}
@@ -279,7 +317,9 @@ footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
   h1{font-size:1.8rem}.header-inner{padding:24px 18px 20px}.header-stats{gap:20px;margin:16px 0 10px}
   .header-sub{font-size:.95rem}.stat-num{font-size:1.6rem}
   .controls-inner,main{padding-left:18px;padding-right:18px}
-  .job-row{flex-wrap:wrap}.video-btn{font-size:.8rem;padding:6px 11px}
+  .job-row{flex-wrap:wrap;gap:10px 8px}.video-btn{font-size:.8rem;padding:6px 11px}
+  .job-info{min-width:200px}
+  .job-row>.video-btn:first-of-type{margin-left:0}
   .cat-name{font-size:1.05rem}.domain-header .d-name{font-size:1.15rem}
   .cat-header{flex-direction:column;align-items:flex-start;gap:9px}
   .toc-grid{grid-template-columns:1fr 1fr}
@@ -324,6 +364,10 @@ footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
           </div>
         </div>
       </div>
+      <button class="filters-toggle" id="filters-toggle" type="button" aria-expanded="true" title="Masquer ou afficher les filtres">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        <span id="filters-toggle-label">Masquer les filtres</span>
+      </button>
     </div>
     <div class="controls-row">
       <div class="domain-nav" id="domain-nav"></div>
@@ -332,6 +376,9 @@ footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
         <span id="fav-toggle-label">Favoris</span>
       </button>
       <span class="result-count" id="result-count"></span>
+    </div>
+    <div class="controls-row" id="niveau-row" style="display:none">
+      <div class="niveau-nav" id="niveau-filter"></div>
     </div>
   </div>
 </div>
@@ -359,7 +406,7 @@ const SPECIALTIES = __SPECIALTIES__;
 const ICONS = __ICONS__;
 const SPEC_LABEL = Object.fromEntries(SPECIALTIES.map(s=>[s[0],s[1]]));
 
-let currentStatus="all", currentDomain="all", currentSearch="";
+let currentStatus="all", currentDomain="all", currentSearch="", currentNiveau="all";
 let selectedSpecs=new Set();
 let favOnly=false;
 
@@ -418,7 +465,7 @@ function buildCard(cat){
     const b2=j.url2?`<a class="video-btn video-btn-2" href="${esc(j.url2)}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Vidéo 2</a>`:`<span class="video-empty"></span>`;
     const fid=cat.name+'::'+j.name;
     const fav=`<button class="fav-btn" type="button" data-fid="${esc(fid)}" aria-pressed="false" aria-label="Ajouter ${esc(j.name)} aux favoris" title="Ajouter aux favoris"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg></button>`;
-    return `<div class="job-row ${i%2===0?'odd':''}" data-fid="${esc(fid)}">${info}${b1}${b2}${fav}</div>`;
+    return `<div class="job-row ${i%2===0?'odd':''}" data-fid="${esc(fid)}" data-niveau="${esc(j.niveau||'')}">${info}${b1}${b2}${fav}</div>`;
   }).join('');
   const badge=hasVid?`<span class="badge badge-count">${nbMet} métier${nbMet>1?'s':''} · ${nbVid} vidéo${nbVid>1?'s':''}</span>`:`<span class="badge badge-todo">À compléter</span>`;
   const optRow=cat.options?`<div class="specs-row"><span class="specs-chip chip-opt">Option</span><span class="specs-text muted">${esc(cat.options)}</span></div>`:'';
@@ -459,6 +506,7 @@ function render(){
   document.getElementById('stat-videos').textContent=DATA.reduce((a,c)=>a+c.jobs.reduce((s,j)=>s+(j.url1?1:0)+(j.url2?1:0),0),0);
 
   buildDomainNav();
+  buildNiveauFilter();
   buildToc();
   buildSpecChips();
   loadFavorites();
@@ -468,6 +516,26 @@ function render(){
     e.stopPropagation(); toggleFavorite(b.dataset.fid);
   }));
   applyFilters();
+}
+
+function buildNiveauFilter(){
+  // N'apparait que si au moins un metier porte un niveau (colonne 'Niveau' remplie).
+  const LEVELS=['Bac / infra','Bac+2/3','Bac+5','Doctorat'];
+  const present=new Set();
+  DATA.forEach(c=>c.jobs.forEach(j=>{ if(j.niveau) present.add(j.niveau); }));
+  if(present.size===0) return;
+  const row=document.getElementById('niveau-row');
+  const box=document.getElementById('niveau-filter');
+  let h=`<span class="niveau-label">🎯 Niveau d'accès :</span><button class="domain-chip active" data-niveau="all">Tous niveaux</button>`;
+  LEVELS.forEach(l=>{ if(present.has(l)) h+=`<button class="domain-chip" data-niveau="${esc(l)}">${esc(l)}</button>`; });
+  box.innerHTML=h;
+  row.style.display='';
+  box.querySelectorAll('.domain-chip').forEach(btn=>btn.addEventListener('click',()=>{
+    currentNiveau=btn.dataset.niveau;
+    box.querySelectorAll('.domain-chip').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }));
 }
 
 function buildDomainNav(){
@@ -551,7 +619,10 @@ function applyFilters(){
     const matchSpec=!specActive||libre||combos.some(ps=>ps.length>0&&ps.every(p=>selectedSpecs.has(p)));
     const favRows=[...card.querySelectorAll('.job-row')].filter(r=>favorites.has(r.dataset.fid));
     const matchFav=!favOnly||favRows.length>0;
-    const show=matchSearch&&matchStatus&&matchDomain&&matchSpec&&matchFav;
+    const nivActive=currentNiveau!=='all';
+    const nivOk=row=>!nivActive||row.dataset.niveau===currentNiveau;
+    const matchNiveau=!nivActive||[...card.querySelectorAll('.job-row')].some(r=>r.dataset.niveau===currentNiveau);
+    const show=matchSearch&&matchStatus&&matchDomain&&matchSpec&&matchFav&&matchNiveau;
     card.classList.toggle('hidden',!show);
     const mb=card.querySelector('.badge-match');
     if(mb) mb.style.display=(specActive&&show)?'flex':'none';
@@ -559,22 +630,23 @@ function applyFilters(){
       visible++; domCount[cdom]=(domCount[cdom]||0)+1;
       if(favOnly){
         card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');
-        card.querySelectorAll('.job-row').forEach(row=>{row.classList.toggle('hidden',!favorites.has(row.dataset.fid));row.style.opacity='1';});
+        card.querySelectorAll('.job-row').forEach(row=>{row.classList.toggle('hidden',!(favorites.has(row.dataset.fid)&&nivOk(row)));row.style.opacity='1';});
       }else if(q){card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');
-        card.querySelectorAll('.job-row').forEach(row=>{row.classList.remove('hidden');const n=row.querySelector('.job-name');const d=row.querySelector('.job-desc');const hit=(n&&n.textContent.toLowerCase().includes(q))||(d&&d.textContent.toLowerCase().includes(q));row.style.opacity=hit?'1':'0.4';});
-      }else{card.querySelectorAll('.job-row').forEach(row=>{row.classList.remove('hidden');row.style.opacity='1';});}
+        card.querySelectorAll('.job-row').forEach(row=>{const ok=nivOk(row);row.classList.toggle('hidden',!ok);if(!ok)return;const n=row.querySelector('.job-name');const d=row.querySelector('.job-desc');const hit=(n&&n.textContent.toLowerCase().includes(q))||(d&&d.textContent.toLowerCase().includes(q));row.style.opacity=hit?'1':'0.4';});
+      }else{card.querySelectorAll('.job-row').forEach(row=>{row.classList.toggle('hidden',!nivOk(row));row.style.opacity='1';});
+        if(nivActive){card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');}}
     }
   });
   document.querySelectorAll('.domain-section').forEach(sec=>{
     sec.classList.toggle('hidden', !(domCount[sec.dataset.domain]>0));
   });
-  const showToc = currentDomain==='all' && !q && !specActive && currentStatus==='all' && !favOnly;
+  const showToc = currentDomain==='all' && !q && !specActive && currentStatus==='all' && !favOnly && currentNiveau==='all';
   document.getElementById('toc').classList.toggle('hidden', !showToc);
   const rc=document.getElementById('result-count');
   if(favOnly){ const totalFav=favorites.size; rc.textContent=`${totalFav} favori${totalFav>1?'s':''}`; }
   else if(specActive){ rc.textContent=`${visible} catégorie${visible>1?'s':''} pour SVT + ${[...selectedSpecs].map(c=>SPEC_LABEL[c]||c).join(' + ')}`; }
   else if(q){ rc.textContent=`${visible} catégorie${visible>1?'s':''} trouvée${visible>1?'s':''}`; }
-  else if(currentDomain!=='all'||currentStatus!=='all'){ rc.textContent=`${visible} catégorie${visible>1?'s':''}`; }
+  else if(currentDomain!=='all'||currentStatus!=='all'||currentNiveau!=='all'){ rc.textContent=`${visible} catégorie${visible>1?'s':''}`+(currentNiveau!=='all'?` · accès ${currentNiveau}`:''); }
   else rc.textContent='';
   document.getElementById('empty-state').style.display=(visible===0&&!favOnly)?'block':'none';
   document.getElementById('fav-empty').style.display=(favOnly&&visible===0)?'block':'none';
@@ -601,6 +673,13 @@ document.getElementById('fav-toggle').addEventListener('click',()=>{
   btn.setAttribute('aria-pressed',favOnly);
   applyFilters();
   if(favOnly){ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches; window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}); }
+});
+const filtersToggle=document.getElementById('filters-toggle');
+filtersToggle.addEventListener('click',()=>{
+  const inner=document.querySelector('.controls-inner');
+  const collapsed=inner.classList.toggle('filters-collapsed');
+  filtersToggle.setAttribute('aria-expanded',(!collapsed).toString());
+  document.getElementById('filters-toggle-label').textContent=collapsed?'Afficher les filtres':'Masquer les filtres';
 });
 document.addEventListener('click',()=>{ if(specWrap.classList.contains('open')){specWrap.classList.remove('open');document.getElementById('spec-btn').setAttribute('aria-expanded','false');} });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&specWrap.classList.contains('open')){specWrap.classList.remove('open');document.getElementById('spec-btn').setAttribute('aria-expanded','false');} });
