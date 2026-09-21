@@ -121,6 +121,7 @@ DOMAINS = [
     "Environnement, biodiversité & écologie",
     "Sciences de la Terre, mer & univers",
     "Santé humaine & médecine",
+    "Parfums, cosmétiques & arômes",
     "Santé animale & vétérinaire",
     "Données, numérique & investigation",
     "Société, droit & entreprise",
@@ -133,6 +134,7 @@ DOMAIN_META = {
     "Environnement, biodiversité & écologie": {"icon":"🌍","short":"Environnement & écologie"},
     "Sciences de la Terre, mer & univers": {"icon":"🌊","short":"Terre, mer & univers"},
     "Santé humaine & médecine": {"icon":"🩺","short":"Santé humaine & médecine"},
+    "Parfums, cosmétiques & arômes": {"icon":"🧴","short":"Parfums & cosmétiques"},
     "Santé animale & vétérinaire": {"icon":"🐾","short":"Santé animale & vétérinaire"},
     "Données, numérique & investigation": {"icon":"💻","short":"Données & investigation"},
     "Société, droit & entreprise": {"icon":"⚖️","short":"Société, droit & entreprise"},
@@ -142,7 +144,7 @@ DOMAIN_META = {
 SPECIALTIES = [["PC","Physique-Chimie"],["Maths","Maths"],["HGGSP","HGGSP"],
     ["SES","SES"],["NSI","NSI"],["LLCER","LLCER"],["Arts","Arts"],["HLP","HLP"],["SI","SI"]]
 
-ICONS = {"default":"🔬","Agronomie":"🌾","Agroalimentaire":"🥗","Biochimie":"⚗️","Biodiversité":"🦋","Bioinformatique":"💻","Biologie cellulaire":"🔬","Biologie moléculaire":"🧬","Biologie végétale":"🌿","Biotechnologies":"🧪","Commerce":"🤝","Data science":"📊","Droit":"⚖️","Epidémiologie":"📈","Ethologie et comportement animal":"🐾","Exobiologie":"🚀","Finance":"💹","Forêts":"🌲","Génétique":"🧬","Géosciences":"🪨","Géotechnique":"⛏️","Hydrogéologie":"💧","Météorologie":"🌤️","Missions scientifiques":"🧭","Muséographie":"🏛️","Neurosciences":"🧠","Océanographie":"🌊","Optique & Vision":"👁️","Paléontologie":"🦕","Pharmacie":"💊","Physiologie humaine":"❤️","Police scientifique":"🔍","Psychologie/Psychiatrie":"🧩","Responsabilité sociétale des entreprises":"♻️","Sciences de l'évolution":"🦎","Santé - Professions médicales et paramédicales":"🩺","Santé - Thérapies complémentaires, accompagnement et bien-être":"🌸","Sport":"⚽","Apiculture & Entomologie appliquée":"🐝","Aquaculture & Pêche durable":"🐟","Biomatériaux & Implants":"🦴","Biomimétisme & Éco-conception":"🌱","Cosmétique & Dermatologie":"✨","Enseignement & Recherche en SVT":"📚","Génie écologique & Restauration":"🌍","Jardins & Espaces verts":"🌻","Journalisme & Médiation scientifique":"📰","Muséologie scientifique":"🏺","Mycologie & Champignons":"🍄","One Health / Santé globale":"🌐","Toxicologie & Sécurité chimique":"⚠️","Vétérinaire & Santé animale":"🐾","Muséographie & Muséologie scientifique":"🏛️"}
+ICONS = {"default":"🔬","Agronomie":"🌾","Agroalimentaire":"🥗","Biochimie":"⚗️","Biodiversité":"🦋","Bioinformatique":"💻","Biologie cellulaire":"🔬","Biologie moléculaire":"🧬","Biologie végétale":"🌿","Biotechnologies":"🧪","Commerce":"🤝","Data science":"📊","Droit":"⚖️","Epidémiologie":"📈","Ethologie et comportement animal":"🐾","Exobiologie":"🚀","Finance":"💹","Forêts":"🌲","Génétique":"🧬","Géosciences":"🪨","Géotechnique":"⛏️","Hydrogéologie":"💧","Météorologie":"🌤️","Missions scientifiques":"🧭","Muséographie":"🏛️","Neurosciences":"🧠","Océanographie":"🌊","Optique & Vision":"👁️","Paléontologie":"🦕","Pharmacie":"💊","Physiologie humaine":"❤️","Police scientifique":"🔍","Psychologie/Psychiatrie":"🧩","Responsabilité sociétale des entreprises":"♻️","Sciences de l'évolution":"🦎","Santé - Professions médicales et paramédicales":"🩺","Santé - Thérapies complémentaires, accompagnement et bien-être":"🌸","Sport":"⚽","Apiculture & Entomologie appliquée":"🐝","Aquaculture & Pêche durable":"🐟","Biomatériaux & Implants":"🦴","Biomimétisme & Éco-conception":"🌱","Cosmétique & Dermatologie":"✨","Parfums & Arômes":"👃","Enseignement & Recherche en SVT":"📚","Génie écologique & Restauration":"🌍","Jardins & Espaces verts":"🌻","Journalisme & Médiation scientifique":"📰","Muséologie scientifique":"🏺","Mycologie & Champignons":"🍄","One Health / Santé globale":"🌐","Toxicologie & Sécurité chimique":"⚠️","Vétérinaire & Santé animale":"🐾","Muséographie & Muséologie scientifique":"🏛️"}
 
 TEMPLATE = r"""<!DOCTYPE html>
 <html lang="fr">
