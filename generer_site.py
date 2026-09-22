@@ -121,7 +121,6 @@ DOMAINS = [
     "Environnement, biodiversité & écologie",
     "Sciences de la Terre, mer & univers",
     "Santé humaine & médecine",
-    "Parfums, cosmétiques & arômes",
     "Santé animale & vétérinaire",
     "Données, numérique & investigation",
     "Société, droit & entreprise",
@@ -134,7 +133,6 @@ DOMAIN_META = {
     "Environnement, biodiversité & écologie": {"icon":"🌍","short":"Environnement & écologie"},
     "Sciences de la Terre, mer & univers": {"icon":"🌊","short":"Terre, mer & univers"},
     "Santé humaine & médecine": {"icon":"🩺","short":"Santé humaine & médecine"},
-    "Parfums, cosmétiques & arômes": {"icon":"🧴","short":"Parfums & cosmétiques"},
     "Santé animale & vétérinaire": {"icon":"🐾","short":"Santé animale & vétérinaire"},
     "Données, numérique & investigation": {"icon":"💻","short":"Données & investigation"},
     "Société, droit & entreprise": {"icon":"⚖️","short":"Société, droit & entreprise"},
@@ -144,7 +142,7 @@ DOMAIN_META = {
 SPECIALTIES = [["PC","Physique-Chimie"],["Maths","Maths"],["HGGSP","HGGSP"],
     ["SES","SES"],["NSI","NSI"],["LLCER","LLCER"],["Arts","Arts"],["HLP","HLP"],["SI","SI"]]
 
-ICONS = {"default":"🔬","Agronomie":"🌾","Agroalimentaire":"🥗","Biochimie":"⚗️","Biodiversité":"🦋","Bioinformatique":"💻","Biologie cellulaire":"🔬","Biologie moléculaire":"🧬","Biologie végétale":"🌿","Biotechnologies":"🧪","Commerce":"🤝","Data science":"📊","Droit":"⚖️","Epidémiologie":"📈","Ethologie et comportement animal":"🐾","Exobiologie":"🚀","Finance":"💹","Forêts":"🌲","Génétique":"🧬","Géosciences":"🪨","Géotechnique":"⛏️","Hydrogéologie":"💧","Météorologie":"🌤️","Missions scientifiques":"🧭","Muséographie":"🏛️","Neurosciences":"🧠","Océanographie":"🌊","Optique & Vision":"👁️","Paléontologie":"🦕","Pharmacie":"💊","Physiologie humaine":"❤️","Police scientifique":"🔍","Psychologie/Psychiatrie":"🧩","Responsabilité sociétale des entreprises":"♻️","Sciences de l'évolution":"🦎","Santé - Professions médicales et paramédicales":"🩺","Santé - Thérapies complémentaires, accompagnement et bien-être":"🌸","Sport":"⚽","Apiculture & Entomologie appliquée":"🐝","Aquaculture & Pêche durable":"🐟","Biomatériaux & Implants":"🦴","Biomimétisme & Éco-conception":"🌱","Cosmétique & Dermatologie":"✨","Parfums & Arômes":"👃","Enseignement & Recherche en SVT":"📚","Génie écologique & Restauration":"🌍","Jardins & Espaces verts":"🌻","Journalisme & Médiation scientifique":"📰","Muséologie scientifique":"🏺","Mycologie & Champignons":"🍄","One Health / Santé globale":"🌐","Toxicologie & Sécurité chimique":"⚠️","Vétérinaire & Santé animale":"🐾","Muséographie & Muséologie scientifique":"🏛️"}
+ICONS = {"default":"🔬","Agronomie":"🌾","Agroalimentaire":"🥗","Biochimie":"⚗️","Biodiversité":"🦋","Bioinformatique":"💻","Biologie cellulaire":"🔬","Biologie moléculaire":"🧬","Biologie végétale":"🌿","Biotechnologies":"🧪","Commerce":"🤝","Data science":"📊","Droit":"⚖️","Epidémiologie":"📈","Ethologie et comportement animal":"🐾","Exobiologie":"🚀","Finance":"💹","Forêts":"🌲","Génétique":"🧬","Géosciences":"🪨","Géotechnique":"⛏️","Hydrogéologie":"💧","Météorologie":"🌤️","Missions scientifiques":"🧭","Muséographie":"🏛️","Neurosciences":"🧠","Océanographie":"🌊","Optique & Vision":"👁️","Paléontologie":"🦕","Pharmacie":"💊","Physiologie humaine":"❤️","Police scientifique":"🔍","Psychologie/Psychiatrie":"🧩","Responsabilité sociétale des entreprises":"♻️","Sciences de l'évolution":"🦎","Santé - Professions médicales et paramédicales":"🩺","Santé - Thérapies complémentaires, accompagnement et bien-être":"🌸","Sport":"⚽","Apiculture & Entomologie appliquée":"🐝","Aquaculture & Pêche durable":"🐟","Biomatériaux & Implants":"🦴","Biomimétisme & Éco-conception":"🌱","Cosmétique & Dermatologie":"✨","Enseignement & Recherche en SVT":"📚","Génie écologique & Restauration":"🌍","Jardins & Espaces verts":"🌻","Journalisme & Médiation scientifique":"📰","Muséologie scientifique":"🏺","Mycologie & Champignons":"🍄","One Health / Santé globale":"🌐","Toxicologie & Sécurité chimique":"⚠️","Vétérinaire & Santé animale":"🐾","Muséographie & Muséologie scientifique":"🏛️"}
 
 TEMPLATE = r"""<!DOCTYPE html>
 <html lang="fr">
@@ -189,6 +187,10 @@ h1 span{color:var(--g300);display:inline-block;border-bottom:3px solid var(--e50
 .controls-inner{max-width:1100px;margin:0 auto;padding:12px 32px}
 .controls-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .controls-row+.controls-row{margin-top:10px}
+.back-to-top{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+.back-to-top.visible{opacity:.85;visibility:visible;transform:none}
+.back-to-top:hover{opacity:1;color:var(--ink);border-color:var(--g300)}
+@media (prefers-reduced-motion: reduce){.back-to-top{transition:none}}
 .filters-toggle{display:flex;align-items:center;gap:6px;margin-left:auto;border:1.5px solid var(--line);background:#fff;color:var(--muted);padding:8px 14px;border-radius:30px;font-family:inherit;font-size:.84rem;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap}
 .filters-toggle:hover{border-color:var(--g300);color:var(--ink)}
 .controls-inner.filters-collapsed #spec-wrap,
@@ -396,6 +398,7 @@ footer a{color:var(--g300);text-decoration:underline;text-underline-offset:2px}
     <p>Aucun résultat pour cette sélection.</p>
   </div>
 </main>
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Remonter en haut de la page" title="Remonter en haut"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
 <footer>
   <strong>Vidéos d'Orientation SVT</strong> &nbsp;·&nbsp; Lucas Bollori, professeur de SVT<br>
   Licence <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons CC BY-NC-SA 4.0</a> &nbsp;·&nbsp; Usage pédagogique libre &nbsp;·&nbsp; Les vidéos sont la propriété de leurs auteurs respectifs
@@ -697,6 +700,14 @@ domainsEl.addEventListener('click',e=>{
 domainsEl.addEventListener('keydown',e=>{
   const h=e.target.closest('.cat-header'); if(!h) return;
   if(e.key==='Enter'||e.key===' '){ e.preventDefault(); const open=h.parentElement.classList.toggle('open'); h.setAttribute('aria-expanded',open); }
+});
+
+const backTop=document.getElementById('back-to-top');
+const onScrollTop=()=>backTop.classList.toggle('visible', window.scrollY>600);
+window.addEventListener('scroll',onScrollTop,{passive:true}); onScrollTop();
+backTop.addEventListener('click',()=>{
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
 });
 
 render();
