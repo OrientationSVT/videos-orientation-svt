@@ -463,23 +463,25 @@ function updateSpecSummary(){
 }
 function clearSpecs(){ selectedSpecs.clear(); refreshSpecChips(); updateSpecSummary(); applyFilters(); }
 
+function norm(s){return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/œ/g,'oe').replace(/Œ/g,'oe').replace(/æ/g,'ae').replace(/Æ/g,'ae').toLowerCase();}
 function applyFilters(){
-  const q=currentSearch.toLowerCase().trim();
+  const q=norm(currentSearch).trim();
   const specActive=selectedSpecs.size>0;
   let visible=0; const domCount={};
   document.querySelectorAll('.cat-card').forEach(card=>{
     const name=card.dataset.name, hasVideos=card.dataset.hasVideos==='true';
     const cdom=card.dataset.domain, libre=card.dataset.libre==='true';
     let combos=[]; try{combos=JSON.parse(card.dataset.combos);}catch(e){}
-    const txt=[...card.querySelectorAll('.job-name,.job-desc')].map(e=>e.textContent.toLowerCase());
-    const matchSearch=!q||name.includes(q)||txt.some(t=>t.includes(q));
+    const nivActive=currentNiveau!=='all';
+    const nivOk=row=>!nivActive||row.dataset.niveau===currentNiveau;
+    const rowHit=row=>{const n=row.querySelector('.job-name');const d=row.querySelector('.job-desc');return (n&&norm(n.textContent).includes(q))||(d&&norm(d.textContent).includes(q));};
+    const catHit=!!q&&norm(name).includes(q);
+    const matchSearch=!q||catHit||[...card.querySelectorAll('.job-row')].some(r=>rowHit(r)&&nivOk(r));
     const matchStatus=currentStatus==='all'||(currentStatus==='videos'&&hasVideos)||(currentStatus==='todo'&&!hasVideos);
     const matchDomain=currentDomain==='all'||cdom===currentDomain;
     const matchSpec=!specActive||libre||combos.some(ps=>ps.length>0&&ps.every(p=>selectedSpecs.has(p)));
     const favRows=[...card.querySelectorAll('.job-row')].filter(r=>favorites.has(r.dataset.fid));
     const matchFav=!favOnly||favRows.length>0;
-    const nivActive=currentNiveau!=='all';
-    const nivOk=row=>!nivActive||row.dataset.niveau===currentNiveau;
     const matchNiveau=!nivActive||[...card.querySelectorAll('.job-row')].some(r=>r.dataset.niveau===currentNiveau);
     const show=matchSearch&&matchStatus&&matchDomain&&matchSpec&&matchFav&&matchNiveau;
     card.classList.toggle('hidden',!show);
@@ -491,7 +493,7 @@ function applyFilters(){
         card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');
         card.querySelectorAll('.job-row').forEach(row=>{row.classList.toggle('hidden',!(favorites.has(row.dataset.fid)&&nivOk(row)));row.style.opacity='1';});
       }else if(q){card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');
-        card.querySelectorAll('.job-row').forEach(row=>{const ok=nivOk(row);row.classList.toggle('hidden',!ok);if(!ok)return;const n=row.querySelector('.job-name');const d=row.querySelector('.job-desc');const hit=(n&&n.textContent.toLowerCase().includes(q))||(d&&d.textContent.toLowerCase().includes(q));row.style.opacity=hit?'1':'0.4';});
+        card.querySelectorAll('.job-row').forEach(row=>{row.classList.toggle('hidden',!(nivOk(row)&&(catHit||rowHit(row))));row.style.opacity='1';});
       }else{card.querySelectorAll('.job-row').forEach(row=>{row.classList.toggle('hidden',!nivOk(row));row.style.opacity='1';});
         if(nivActive){card.classList.add('open');card.querySelector('.cat-header').setAttribute('aria-expanded','true');}}
     }
